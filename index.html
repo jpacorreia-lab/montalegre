@@ -13,7 +13,7 @@
   --dark:#1c2833;--mid:#566573;--light:#aab7b8;--border:#dde1e4;
   --bg:#f4f6f7;--white:#fff;--text:#1c2833;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 
 /* HEADER */
@@ -27,15 +27,15 @@ header{background:var(--dark);color:#fff}
 /* NAV */
 nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.07)}
 .ninner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;overflow-x:auto}
-.nbtn{padding:.9rem 1.2rem;font-size:13px;font-weight:500;color:var(--mid);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;white-space:nowrap;font-family:inherit;transition:all .2s}
+.nbtn{padding:.9rem 1.2rem;font-size:13px;font-weight:500;color:var(--mid);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;white-space:nowrap;font-family:inherit;transition:all .2s;text-decoration:none;display:inline-block}
 .nbtn:hover{color:var(--dark)}
 .nbtn.active{color:var(--dark);border-bottom-color:var(--red);font-weight:600}
 
 /* MAIN */
 main{max-width:1100px;margin:0 auto;padding:2rem}
-.sec{display:none}.sec.active{display:block}
+.sec{display:block;scroll-margin-top:52px}
 .sec-hdr{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.sec-hdr h2{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.sec+.sec{border-top:3px solid var(--border);padding-top:2rem;margin-top:1rem}.sec-hdr h2{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--dark);margin-bottom:4px}
 .sec-hdr p{font-size:13px;color:var(--mid)}
 
 /* GRIDS */
@@ -135,19 +135,19 @@ footer strong{color:#aab7b8}
 
 <nav>
 <div class="ninner">
-  <button class="nbtn active" onclick="show('pop',this)">👥 População</button>
-  <button class="nbtn" onclick="show('fin',this)">💶 Finanças</button>
-  <button class="nbtn" onclick="show('eco',this)">🏭 Economia</button>
-  <button class="nbtn" onclick="show('tur',this)">🏨 Turismo</button>
-  <button class="nbtn" onclick="show('soc',this)">❤️ Social</button>
-  <button class="nbtn" onclick="show('inv',this)">🔨 Investimento</button>
+  <a class="nbtn active" href="#pop">👥 População</a>
+  <a class="nbtn" href="#fin">💶 Finanças</a>
+  <a class="nbtn" href="#eco">🏭 Economia</a>
+  <a class="nbtn" href="#tur">🏨 Turismo</a>
+  <a class="nbtn" href="#soc">❤️ Social</a>
+  <a class="nbtn" href="#inv">🔨 Investimento</a>
 </div>
 </nav>
 
 <main>
 
 <!-- ══════ POPULAÇÃO ══════ -->
-<div id="pop" class="sec active">
+<div id="pop" class="sec">
 <div class="sec-hdr">
   <h2>População</h2>
   <p>Quantas pessoas somos, como envelhecemos e o que isso significa · INE 2024</p>
@@ -694,13 +694,22 @@ footer strong{color:#aab7b8}
 </footer>
 
 <script>
-function show(id,btn){
-  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+// Scroll spy — highlight nav link matching the section in view
+const sections = document.querySelectorAll('.sec');
+const navLinks = document.querySelectorAll('.nbtn');
+function onScroll(){
+  let current='';
+  sections.forEach(s=>{
+    const top=s.getBoundingClientRect().top;
+    if(top<=80) current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+  });
 }
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
 
 Chart.defaults.font.family="'Inter',sans-serif";
 Chart.defaults.font.size=12;
