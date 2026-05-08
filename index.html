@@ -6,686 +6,1210 @@
 <title>Montalegre em Números · 2025</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600&display=swap');
 :root{
-  --red:#c0392b;--red-l:#fdf3f2;--amber:#d68910;--amber-l:#fef9ec;
-  --green:#1e8449;--green-l:#eafaf1;--blue:#1a5276;--blue-l:#eaf2f8;
-  --dark:#1c2833;--mid:#566573;--light:#aab7b8;--border:#dde1e4;
-  --bg:#f4f6f7;--white:#fff;--text:#1c2833;
+  --red:#E3120B;--red-l:#fff5f5;
+  --amber:#B7600A;--amber-l:#fff8ee;
+  --green:#1a6b3c;--green-l:#f0f8f3;
+  --blue:#003366;--blue-l:#f0f4f9;
+  --dark:#121212;--mid:#555;--light:#999;
+  --border:#d0ccc4;--bg:#FAF9F7;--white:#fff;--text:#121212;
+  --econ-red:#E3120B;--econ-line:#d0ccc4;
 }
-html{scroll-behavior:smooth}*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 
-/* HEADER */
-header{background:var(--dark);color:#fff}
-.hinner{max-width:1100px;margin:0 auto;padding:2.5rem 2rem 0}
-.hkicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aab7b8;margin-bottom:.5rem}
-.htitle{font-family:'Lora',serif;font-size:36px;font-weight:600;line-height:1.15;margin-bottom:.6rem}
-.hsub{font-size:15px;color:#aab7b8;max-width:620px;line-height:1.6;margin-bottom:1.5rem}
-.hsrc{font-size:11px;color:#7f8c8d;padding:.6rem 0;border-top:.5px solid #2e4057}
+/* ── HERO — estilo capa The Economist ── */
+.hero{background:#fff;color:var(--dark);padding:0;border-bottom:4px solid var(--econ-red)}
+.hero-inner{max-width:960px;margin:0 auto;padding:0}
+.hero-top{background:var(--econ-red);padding:.45rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.hero-top-label{font-size:12px;font-weight:600;color:#fff;letter-spacing:.08em;text-transform:uppercase}
+.hero-top-date{font-size:12px;color:rgba(255,255,255,.8)}
+.hero-body{padding:2rem 2rem 1.5rem;border-left:4px solid var(--econ-red)}
+.hero-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--econ-red);margin-bottom:.5rem;font-weight:600}
+.hero-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;line-height:1.1;margin-bottom:.7rem;color:var(--dark)}
+.hero-sub{font-size:15px;color:#444;max-width:620px;line-height:1.65;margin-bottom:1rem;font-family:'Source Serif 4',serif}
+.hero-rule{height:1px;background:var(--econ-line);margin-bottom:.7rem}
+.hero-src{font-size:11px;color:#888;font-style:italic}
+@media(max-width:600px){.hero-title{font-size:28px}.hero-body{padding:1.2rem}}
 
-/* NAV */
-nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.07)}
-.ninner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;overflow-x:auto}
-.nbtn{padding:.9rem 1.2rem;font-size:13px;font-weight:500;color:var(--mid);cursor:pointer;border:none;background:none;border-bottom:3px solid transparent;white-space:nowrap;font-family:inherit;transition:all .2s;text-decoration:none;display:inline-block}
-.nbtn:hover{color:var(--dark)}
-.nbtn.active{color:var(--dark);border-bottom-color:var(--red);font-weight:600}
+/* ── STICKY NAV — linha fina Economist ── */
+nav{background:#fff;border-bottom:2px solid var(--dark);position:sticky;top:0;z-index:200}
+.nav-inner{max-width:960px;margin:0 auto;padding:0 2rem;display:flex;overflow-x:auto;gap:0}
+.nav-inner::-webkit-scrollbar{display:none}
+.na{padding:.7rem .95rem;font-size:12px;font-weight:600;color:var(--mid);text-decoration:none;border-bottom:3px solid transparent;white-space:nowrap;display:inline-block;transition:all .15s;letter-spacing:.02em;text-transform:uppercase}
+.na:hover{color:var(--dark)}
+.na.on{color:var(--econ-red);border-bottom-color:var(--econ-red)}
 
-/* MAIN */
-main{max-width:1100px;margin:0 auto;padding:2rem}
-.sec{display:block;scroll-margin-top:52px}
-.sec-hdr{margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.sec+.sec{border-top:3px solid var(--border);padding-top:2rem;margin-top:1rem}.sec-hdr h2{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--dark);margin-bottom:4px}
-.sec-hdr p{font-size:13px;color:var(--mid)}
+/* ── MAIN WRAP ── */
+.wrap{max-width:960px;margin:0 auto;padding:2.5rem 2rem}
+@media(max-width:600px){.wrap{padding:1.2rem}}
 
-/* GRIDS */
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:1.5rem}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:1.5rem}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:1.5rem}
-.g21{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:1.5rem}
-@media(max-width:800px){.g4,.g3,.g2,.g21{grid-template-columns:1fr 1fr}main{padding:1rem}}
-@media(max-width:500px){.g4,.g3,.g2,.g21{grid-template-columns:1fr}.htitle{font-size:24px}}
+/* ── SECTION HEADER — regra Economist ── */
+.s-anchor{scroll-margin-top:46px}
+.s-hdr{margin-bottom:1.5rem;padding-bottom:.7rem}
+.s-hdr-rule{height:4px;background:var(--dark);margin-bottom:.6rem}
+.s-hdr h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--dark);margin-bottom:3px;line-height:1.15}
+.s-hdr p{font-size:13px;color:var(--mid);font-style:italic;font-family:'Source Serif 4',serif}
+.sec-sep{margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--econ-line)}
 
-/* BIG STAT */
-.bigstat{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.3rem;position:relative;overflow:hidden}
-.bigstat.red{border-top:4px solid var(--red)}
-.bigstat.amber{border-top:4px solid var(--amber)}
-.bigstat.green{border-top:4px solid var(--green)}
-.bigstat.blue{border-top:4px solid var(--blue)}
-.bigstat.dark{border-top:4px solid var(--dark);background:var(--dark)}
-.bs-label{font-size:11px;color:var(--mid);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
-.bs-label.inv{color:#7f8c8d}
-.bs-value{font-size:30px;font-weight:600;line-height:1.1;margin-bottom:4px}
-.bs-value.red{color:var(--red)}.bs-value.amber{color:var(--amber)}.bs-value.green{color:var(--green)}.bs-value.blue{color:var(--blue)}.bs-value.inv{color:#fff}
-.bs-note{font-size:12px;color:var(--light)}
-.bs-note.inv{color:#566573}
-.bs-analogy{font-size:12px;color:var(--mid);margin-top:6px;padding-top:6px;border-top:.5px solid var(--border);font-style:italic;line-height:1.4}
-.bs-analogy.inv{color:#566573;border-top:.5px solid #2e4057}
+/* ── FACT CARDS — sem arredondamentos, estilo editorial ── */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;margin-bottom:1.5rem;border:1px solid var(--econ-line);background:var(--econ-line)}
+.fact{background:#fff;padding:1.4rem 1.5rem;cursor:pointer;transition:background .2s;position:relative;border:none;border-radius:0}
+.fact:hover{background:#fafaf8}
+.fact.red{border-top:4px solid var(--econ-red)}
+.fact.amber{border-top:4px solid var(--amber)}
+.fact.green{border-top:4px solid var(--green)}
+.fact.blue{border-top:4px solid var(--blue)}
+.fact.dark{border-top:4px solid var(--dark);background:var(--dark)}
+.fact.dark:hover{background:#1a1a1a}
+.f-icon{font-size:22px;margin-bottom:.5rem;opacity:.8}
+.f-value{font-size:36px;font-weight:700;line-height:1;margin-bottom:.25rem;font-family:'Playfair Display',serif}
+.f-value.red{color:var(--econ-red)}.f-value.amber{color:var(--amber)}
+.f-value.green{color:var(--green)}.f-value.blue{color:var(--blue)}
+.f-value.white{color:#fff}
+.f-label{font-size:12px;font-weight:600;color:var(--dark);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+.f-label.inv{color:#bbb}
+.f-plain{font-size:13px;color:var(--mid);line-height:1.55;margin-bottom:.8rem;font-family:'Source Serif 4',serif}
+.f-plain.inv{color:#999}
+.f-more{font-size:11px;font-weight:600;color:var(--econ-red);display:flex;align-items:center;gap:4px;margin-top:.5rem;text-transform:uppercase;letter-spacing:.06em}
+.f-more.inv{color:#aaa}
+.f-more svg{transition:transform .2s}
+.fact:hover .f-more svg{transform:translateX(4px)}
 
-/* CARD */
-.card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;margin-bottom:1.4rem}
-.ctitle{font-size:12px;font-weight:600;color:var(--dark);text-transform:uppercase;letter-spacing:.07em;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
+/* ── DETAIL PANEL ── */
+.detail{display:none;grid-column:1/-1;margin-top:0;overflow:hidden}
+.detail.open{display:block}
+.detail-inner{background:#fafaf8;border:1px solid var(--econ-line);border-top:3px solid var(--econ-red);padding:1.75rem 2rem 2rem;margin-top:0}
 
-/* VISUAL COMPARISON */
-.vcmp{display:flex;gap:8px;align-items:flex-end;margin:1rem 0;flex-wrap:wrap}
-.vcmp-col{text-align:center;flex:1;min-width:70px}
-.vcmp-bar{border-radius:4px 4px 0 0;margin:0 auto;transition:height .5s}
-.vcmp-label{font-size:11px;color:var(--mid);margin-top:6px;line-height:1.3}
-.vcmp-val{font-size:13px;font-weight:600;margin-top:2px}
+/* ── CARD ── */
+.card{background:#fff;border:1px solid var(--econ-line);padding:1.3rem 1.5rem;margin-bottom:1.2rem;border-radius:0}
+.card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--mid);margin-bottom:1rem;padding-bottom:.6rem;border-bottom:1px solid var(--econ-line)}
 
-/* ANALOGY BOX */
-.abox{display:flex;gap:14px;align-items:flex-start;background:var(--amber-l);border:1px solid #f0c060;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem}
-.abox-icon{font-size:32px;line-height:1;flex-shrink:0}
-.abox-body{}
-.abox-title{font-size:14px;font-weight:600;color:#7e5109;margin-bottom:3px}
-.abox-text{font-size:13px;color:#6e4a11;line-height:1.55}
-.abox.red{background:var(--red-l);border-color:#f0a0a0}
-.abox.red .abox-title{color:#922b21}
-.abox.red .abox-text{color:#6e2f2a}
-.abox.green{background:var(--green-l);border-color:#90d0a0}
-.abox.green .abox-title{color:#1a5631}
-.abox.green .abox-text{color:#1e6b3a}
-.abox.blue{background:var(--blue-l);border-color:#90b8d8}
-.abox.blue .abox-title{color:#1a5276}
-.abox.blue .abox-text{color:#1a4060}
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:1.2rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:1.2rem}
+@media(max-width:700px){.g2,.g3{grid-template-columns:1fr}}
 
-/* COMPARE TABLE */
-.ctbl{width:100%;border-collapse:collapse;font-size:13px}
-.ctbl th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--mid);padding:8px 10px;background:var(--bg);border-bottom:1px solid var(--border);text-align:left}
-.ctbl td{padding:9px 10px;border-bottom:.5px solid var(--border)}
-.ctbl tr:last-child td{border-bottom:none}
-.ctbl tr.hl td{background:#fdf3f2;font-weight:600}
-.ctbl tr.hl td:first-child{border-left:3px solid var(--red);padding-left:7px}
-.ctbl tr.gr td{background:var(--bg);color:var(--mid)}
-
-/* BADGE */
-.badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
-.br{background:#fadbd8;color:#922b21}.ba{background:#fdebd0;color:#7e5109}
-.bg{background:#d5f5e3;color:#1a5631}.bb{background:#d6eaf8;color:#1a5276}
-
-/* PROGRESS BAR */
-.pbar{margin-bottom:12px}
-.pbar-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
-.pbar-track{height:10px;background:#ecf0f1;border-radius:5px;overflow:hidden}
-.pbar-fill{height:100%;border-radius:5px}
-
-/* CHART */
+/* ── CHART ── */
 .cbox{position:relative;width:100%}
 
-/* PEOPLE ICONS */
-.people-viz{display:flex;gap:4px;flex-wrap:wrap;margin:0.8rem 0;line-height:1}
-.person{font-size:22px}
+/* ── INSIGHT BOX (substitui alert) ── */
+.al{border-left:3px solid var(--econ-red);background:var(--red-l);padding:.85rem 1rem;margin-bottom:.9rem;border-radius:0}
+.al-t{font-size:13px;font-weight:600;color:#900;margin-bottom:2px}
+.al-b{font-size:12px;color:#600;line-height:1.6;font-family:'Source Serif 4',serif}
+.al.am{border-color:var(--amber);background:var(--amber-l)}.al.am .al-t{color:#7e5109}.al.am .al-b{color:#6e4a11}
+.al.gn{border-color:var(--green);background:var(--green-l)}.al.gn .al-t{color:#1a5631}.al.gn .al-b{color:#1e6b3a}
+.al.bl{border-color:var(--blue);background:var(--blue-l)}.al.bl .al-t{color:#003366}.al.bl .al-b{color:#003366}
 
-.src{font-size:11px;color:var(--light);margin-top:8px;font-style:italic}
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--mid);padding:7px 10px;background:var(--bg);border-bottom:2px solid var(--dark);text-align:left}
+.tbl td{padding:8px 10px;border-bottom:1px solid var(--econ-line)}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr.hl td{background:#fff8f8;font-weight:600}
+.tbl tr.hl td:first-child{border-left:3px solid var(--econ-red);padding-left:7px}
+.tbl tr.gr td{background:var(--bg);color:var(--mid)}
 
-footer{background:var(--dark);color:#7f8c8d;text-align:center;padding:1.5rem 2rem;font-size:12px;margin-top:2rem}
-footer strong{color:#aab7b8}
+/* ── BADGE ── */
+.bd{display:inline-block;padding:1px 7px;border-radius:0;font-size:11px;font-weight:600;border:1px solid currentColor}
+.br{background:#fff0f0;color:#900}.ba{background:#fff8ee;color:#7e5109}
+.bg{background:#f0f8f3;color:#1a6b3c}.bb{background:#f0f4f9;color:#003366}
+
+/* ── PROGRESS BAR ── */
+.pb{margin-bottom:10px}
+.pb-top{display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px}
+.pb-track{height:6px;background:#e8e4dc;border-radius:0;overflow:hidden}
+.pb-fill{height:100%;border-radius:0}
+
+/* ── SOURCE NOTE ── */
+.src{font-size:11px;color:#999;margin-top:8px;font-style:italic}
+
+/* ── FOOTER ── */
+footer{background:var(--dark);color:#888;text-align:center;padding:1.5rem 2rem;font-size:12px;margin-top:3rem;border-top:4px solid var(--econ-red)}
+footer strong{color:#ccc}
+
+/* ── BIGSTAT dentro de detail ── */
+.bigstat{background:#fff;border:1px solid var(--econ-line);border-radius:0;padding:1rem 1.2rem}
+.bigstat.red{border-top:3px solid var(--econ-red)}
+.bigstat.amber{border-top:3px solid var(--amber)}
+.bs-label{font-size:11px;color:var(--mid);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.bs-label.inv{color:#888}
+.bs-value{font-size:24px;font-weight:700;line-height:1.1;margin-bottom:4px;font-family:'Playfair Display',serif}
+.bs-value.red{color:var(--econ-red)}.bs-value.amber{color:var(--amber)}.bs-value.inv{color:#fff}
+.bs-note{font-size:11px;color:var(--light)}
+.bs-note.inv{color:#666}
+.bs-analogy{font-size:12px;color:var(--mid);margin-top:6px;padding-top:6px;border-top:1px solid var(--econ-line);font-style:italic;line-height:1.4;font-family:'Source Serif 4',serif}
 </style>
 </head>
 <body>
 
-<header>
-<div class="hinner">
-  <div class="hkicker">Retrato do Município · Dados Oficiais 2025</div>
-  <h1 class="htitle">Montalegre em Números</h1>
-  <p class="hsub">O que os dados oficiais dizem sobre o nosso município — explicado de forma simples, com comparações que todos entendem.</p>
-  <div class="hsrc">Fontes: INE — Retorno de Informação aos Respondentes, Dezembro 2025 · Município de Montalegre — Relatório e Contas 2025</div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="hero-top-label">Montalegre · Análise de Dados</span>
+      <span class="hero-top-date">Dezembro 2025</span>
+    </div>
+    <div class="hero-body">
+      <div class="hero-kicker">Retrato Socioeconómico · Dados Oficiais</div>
+      <h1 class="hero-title">Montalegre em Números</h1>
+      <p class="hero-sub">O que os dados revelam sobre o concelho de Montalegre. Transformamos números em informação — para que cada cidadão possa compreender a realidade do seu território.</p>
+      <div class="hero-rule"></div>
+      <div class="hero-src">Fontes: INE — Retorno de Informação aos Respondentes, Dezembro 2025 · Município de Montalegre — Relatório e Contas 2025</div>
+    </div>
+  </div>
 </div>
-</header>
 
+<!-- NAV -->
 <nav>
-<div class="ninner">
-  <a class="nbtn active" href="#pop">👥 População</a>
-  <a class="nbtn" href="#fin">💶 Finanças</a>
-  <a class="nbtn" href="#eco">🏭 Economia</a>
-  <a class="nbtn" href="#tur">🏨 Turismo</a>
-  <a class="nbtn" href="#soc">❤️ Social</a>
-  <a class="nbtn" href="#inv">🔨 Investimento</a>
-</div>
+  <div class="nav-inner">
+    <a class="na on" href="#pop">👥 População</a>
+    <a class="na" href="#serv">🏥 Serviços Públicos</a>
+    <a class="na" href="#rendimentos">💼 Rendimentos</a>
+    <a class="na" href="#fin">💶 Finanças</a>
+    <a class="na" href="#eco">🏭 Economia</a>
+    <a class="na" href="#tur">🏨 Turismo</a>
+    <a class="na" href="#soc">❤️ Social</a>
+    <a class="na" href="#inv">🔨 Investimento</a>
+  </div>
 </nav>
 
-<main>
+<div class="wrap">
 
-<!-- ══════ POPULAÇÃO ══════ -->
-<div id="pop" class="sec">
-<div class="sec-hdr">
-  <h2>População</h2>
-  <p>Quantas pessoas somos, como envelhecemos e o que isso significa · INE 2024</p>
-</div>
+<!-- ════════════════════════════════
+     POPULAÇÃO
+════════════════════════════════ -->
+<div id="pop" class="s-anchor">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>👥 População</h2>
+    <p>Quantas pessoas somos, como envelhecemos e o que isso significa</p>
+  </div>
 
-<div class="g4">
-  <div class="bigstat red">
-    <div class="bs-label">Habitantes</div>
-    <div class="bs-value red">9 100</div>
-    <div class="bs-note">em todo o concelho</div>
-    <div class="bs-analogy">O concelho tem 805 km² — maior do que o distrito de Braga inteiro tem em algumas zonas. A freguesia de São Victor em Braga (4 km²) tem 32 876 pessoas. Todo o Montalegre, com 200× mais território, tem 9 100</div>
-  </div>
-  <div class="bigstat red">
-    <div class="bs-label">Por cada 100 jovens...</div>
-    <div class="bs-value red">551</div>
-    <div class="bs-note">idosos com 65+ anos</div>
-    <div class="bs-analogy">Em Portugal são 192. Aqui são quase 6× mais idosos do que jovens — a pior proporção da região</div>
-  </div>
-  <div class="bigstat red">
-    <div class="bs-label">Nascimentos em 2024</div>
-    <div class="bs-value red">29</div>
-    <div class="bs-note">vs. 177 mortes no mesmo ano</div>
-    <div class="bs-analogy">1 bebé por semana. Mas morrem 3,4 pessoas por semana. O concelho perde população naturalmente todos os dias</div>
-  </div>
-  <div class="bigstat amber">
-    <div class="bs-label">Densidade</div>
-    <div class="bs-value amber">11,3</div>
-    <div class="bs-note">pessoas por km²</div>
-    <div class="bs-analogy">Por cada habitante existem 13 campos de futebol de espaço. A freguesia de Ferreiros e Gondizalves em Braga tem quase a mesma população que Montalegre — mas em apenas 3 km² vs. 805 km²</div>
-  </div>
-</div>
+  <div class="facts">
 
-<div class="card">
-  <div class="ctitle">O desequilíbrio entre jovens e idosos — posto em perspetiva</div>
-  <div class="abox red">
-    <div class="abox-icon">👶</div>
-    <div class="abox-body">
-      <div class="abox-title">Imagine uma turma de 25 crianças numa escola de Montalegre</div>
-      <div class="abox-text">Para essa turma existem <strong>138 idosos com 65+ anos</strong> no concelho. Em Portugal, a mesma turma corresponderia a 48 idosos. Em Montalegre são quase 3× mais.</div>
+    <!-- CARD 1 -->
+    <div class="fact red" onclick="toggle('d-pop1',this)">
+      <div class="f-icon">🏘️</div>
+      <div class="f-value red">9 100</div>
+      <div class="f-label">Habitantes</div>
+      <div class="f-plain">Montalegre é o 16.º maior concelho de Portugal em área (805 km²) — maior do que países como São Marino ou Andorra. Mas tem menos habitantes do que a freguesia de Ferreiros em Braga, que ocupa apenas 3 km².</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
-  </div>
-  <div class="cbox" style="height:280px;margin-top:1rem">
-    <canvas id="cEtaria" role="img" aria-label="Estrutura etária Montalegre vs Portugal">Estrutura etária comparada.</canvas>
-  </div>
-  <p class="src">Fonte: INE, Estimativas Anuais da População Residente 2024</p>
-</div>
 
-<div class="g2">
-  <div class="card">
-    <div class="ctitle">Nascimentos vs. mortes (2021–2024)</div>
-    <div class="abox">
-      <div class="abox-icon">📉</div>
-      <div class="abox-body">
-        <div class="abox-title">Em 4 anos: 142 nascimentos, 711 mortes</div>
-        <div class="abox-text">O saldo é de <strong>−569 pessoas</strong> só por via natural, sem contar com emigração. É como se uma aldeia inteira de média dimensão desaparecesse.</div>
+    <!-- CARD 2 -->
+    <div class="fact red" onclick="toggle('d-pop2',this)">
+      <div class="f-icon">👴</div>
+      <div class="f-value red">551</div>
+      <div class="f-label">Idosos por cada 100 jovens</div>
+      <div class="f-plain">Por cada turma de 25 crianças numa escola de Montalegre, existem 138 idosos com mais de 65 anos. Em Portugal a proporção é de 48 idosos por turma.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="fact red" onclick="toggle('d-pop3',this)">
+      <div class="f-icon">👶</div>
+      <div class="f-value red">29</div>
+      <div class="f-label">Bebés nascidos em 2024</div>
+      <div class="f-plain">Em 2024 morreram 177 pessoas e nasceram apenas 29. A diferença — 148 pessoas — é o que o concelho perdeu nesse ano. O equivalente a uma aldeia inteira que desapareceu.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="fact amber" onclick="toggle('d-pop4',this)">
+      <div class="f-icon">📍</div>
+      <div class="f-value amber">11,3</div>
+      <div class="f-label">Pessoas por km²</div>
+      <div class="f-plain">Por cada habitante existem 13 campos de futebol de espaço. Montalegre é o 16.º maior concelho de Portugal em área — mas tem apenas 9 100 pessoas. Em Portugal a média é 117 pessoas por km².</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div><!-- /facts -->
+
+  <!-- DETAIL PANELS -->
+  <div id="d-pop1" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Montalegre está a encolher há décadas</div>
+        <div class="al-b">O concelho tinha cerca de 16 000 habitantes nos anos 80. Em 2024 são 9 100. Em 40 anos perdeu quase metade da população — sem sinais de inversão desta tendência.</div>
       </div>
-    </div>
-    <div class="cbox" style="height:220px">
-      <canvas id="cNatal" role="img" aria-label="Nascimentos vs mortes 2021-2024">Nascimentos vs mortes.</canvas>
-    </div>
-    <p class="src">Fonte: INE, Nados-vivos e Óbitos</p>
-  </div>
-  <div class="card">
-    <div class="ctitle">Como crescemos comparados com o país</div>
-    <div class="abox red">
-      <div class="abox-icon">🗺️</div>
-      <div class="abox-body">
-        <div class="abox-title">Portugal cresce. Montalegre encolhe.</div>
-        <div class="abox-text">Enquanto Portugal cresceu +1,0% em 2024 e o Norte cresceu +0,5%, Montalegre perdeu −0,5% da população. A tendência é consistente há décadas.</div>
-      </div>
-    </div>
-    <div class="cbox" style="height:180px">
-      <canvas id="cCresc" role="img" aria-label="Crescimento populacional comparado">Crescimento comparado.</canvas>
-    </div>
-    <p class="src">Fonte: INE 2024</p>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">Montalegre vs. concelhos vizinhos — envelhecimento e população</div>
-  <div class="abox blue">
-    <div class="abox-icon">🔍</div>
-    <div class="abox-body">
-      <div class="abox-title">Mesmo na região mais envelhecida do país, Montalegre é o caso mais extremo</div>
-      <div class="abox-text">O Alto Tâmega e Barroso tem o maior índice de envelhecimento do país. E dentro desta região, Montalegre (551) supera largamente a média regional (419) e a média de Chaves (340) — o maior concelho vizinho.</div>
-    </div>
-  </div>
-  <div class="cbox" style="height:260px">
-    <canvas id="cVizinhos" role="img" aria-label="Índice de envelhecimento concelhos vizinhos">Comparação concelhos vizinhos.</canvas>
-  </div>
-  <p class="src">Fonte: INE 2024 · Dados de vizinhos: estimativas baseadas em NUTS III</p>
-</div>
-</div>
-
-<!-- ══════ FINANÇAS ══════ -->
-<div id="fin" class="sec">
-<div class="sec-hdr">
-  <h2>Finanças Municipais</h2>
-  <p>O que entra e o que sai das contas do município · R&C Montalegre 2025</p>
-</div>
-
-<div class="g4">
-  <div class="bigstat dark">
-    <div class="bs-label inv">Orçamento 2025</div>
-    <div class="bs-value inv">42,5 M€</div>
-    <div class="bs-note inv">orçamento total do município</div>
-    <div class="bs-analogy inv">São 4 670€ por cada habitante de Montalegre — mais do que o salário mínimo anual (9 870€/ano × 0,5)</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">Receita executada</div>
-    <div class="bs-value green">40,3 M€</div>
-    <div class="bs-note">94,8% do orçado · acima do previsto nas correntes</div>
-    <div class="bs-analogy">Por cada 100€ previstos, entraram 94,8€ nas contas do município</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">Poupança corrente</div>
-    <div class="bs-value green">3,96 M€</div>
-    <div class="bs-note">o que sobra após pagar as despesas do dia a dia</div>
-    <div class="bs-analogy">Como um agregado familiar que ganha 23 300€/mês e gasta 19 300€ — sobram 3 960€ para investir</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">Saldo final</div>
-    <div class="bs-value green">6,89 M€</div>
-    <div class="bs-note">saldo orçamental positivo</div>
-    <div class="bs-analogy">O município terminou 2025 com 6,9 M€ de "poupança" incluindo o saldo do ano anterior</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">De onde vem o dinheiro? — estrutura da receita total (40,3 M€)</div>
-  <div class="abox">
-    <div class="abox-icon">⚠️</div>
-    <div class="abox-body">
-      <div class="abox-title">65 em cada 100€ vêm de transferências do Estado ou de fundos externos</div>
-      <div class="abox-text">Apenas 16€ de cada 100€ são gerados localmente pelo município (impostos, taxas, rendas). Os restantes 84€ dependem de Lisboa, da UE ou de saldos acumulados. Esta dependência reflete a fraca capacidade económica do território.</div>
-    </div>
-  </div>
-  <div class="g2" style="margin-top:1rem">
-    <div class="cbox" style="height:260px">
-      <canvas id="cRecEstr" role="img" aria-label="Estrutura da receita municipal 2025">Estrutura receita.</canvas>
-    </div>
-    <div>
-      <div style="margin-top:0.5rem">
-        <div class="pbar">
-          <div class="pbar-top"><span>Transferências correntes do Estado</span><span style="font-weight:600">17,1 M€ · 42%</span></div>
-          <div class="pbar-track"><div class="pbar-fill" style="width:100%;background:#1a5276"></div></div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Comparação com municípios vizinhos (2024)</div>
+          <table class="tbl">
+            <thead><tr><th>Município</th><th>Pop.</th><th>Área (km²)</th><th>Densidade</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Montalegre</td><td>9 100</td><td>805</td><td>11,3/km²</td></tr>
+              <tr><td>Chaves</td><td>~37 000</td><td>591</td><td>~63/km²</td></tr>
+              <tr><td>Valpaços</td><td>~15 000</td><td>549</td><td>~27/km²</td></tr>
+              <tr><td>Boticas</td><td>~5 500</td><td>320</td><td>~17/km²</td></tr>
+              <tr><td>Ribeira de Pena</td><td>~8 000</td><td>219</td><td>~37/km²</td></tr>
+              <tr class="gr"><td>Portugal</td><td>10,7M</td><td>92 226</td><td>116,6/km²</td></tr>
+            </tbody>
+          </table>
+          <p class="src">INE, Estimativas 2024 · vizinhos: estimativas NUTS III</p>
         </div>
-        <div class="pbar">
-          <div class="pbar-top"><span>Transferências de capital (fundos)</span><span style="font-weight:600">9,4 M€ · 23%</span></div>
-          <div class="pbar-track"><div class="pbar-fill" style="width:55%;background:#2980b9"></div></div>
-        </div>
-        <div class="pbar">
-          <div class="pbar-top"><span>Saldo do ano anterior</span><span style="font-weight:600">7,5 M€ · 19%</span></div>
-          <div class="pbar-track"><div class="pbar-fill" style="width:44%;background:#566573"></div></div>
-        </div>
-        <div class="pbar">
-          <div class="pbar-top"><span>Receita própria (impostos, taxas, rendas)</span><span style="font-weight:600">6,3 M€ · 16%</span></div>
-          <div class="pbar-track"><div class="pbar-fill" style="width:37%;background:#d68910"></div></div>
-        </div>
-      </div>
-      <div class="abox blue" style="margin-top:1rem">
-        <div class="abox-icon">💡</div>
-        <div class="abox-body">
-          <div class="abox-title">O que é a receita própria?</div>
-          <div class="abox-text">É o IMI que pagamos, as taxas camarárias, as rendas de terrenos e imóveis municipais. Estes 6,3 M€ são o reflexo direto da atividade económica local. Quanto maior a economia, maior esta receita.</div>
+        <div>
+          <div class="card" style="margin-bottom:0.8rem">
+            <div class="card-title">Taxa de crescimento efetivo anual (%)</div>
+            <div class="cbox" style="height:180px"><canvas id="cCresc"></canvas></div>
+            <p class="src">INE 2024</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <p class="src">Fonte: Quadros 4 e 8 — R&C Montalegre 2025</p>
-</div>
 
-<div class="g2">
-  <div class="card">
-    <div class="ctitle">Execução orçamental 2025 — o que estava previsto vs. o que se gastou</div>
-    <div class="cbox" style="height:270px">
-      <canvas id="cExec" role="img" aria-label="Execução orçamental 2025">Execução orçamental.</canvas>
-    </div>
-    <p class="src">Fonte: Quadro 4 — R&C 2025</p>
-  </div>
-  <div class="card">
-    <div class="ctitle">Receita própria 2022–2025 — o que o município gera localmente</div>
-    <div class="cbox" style="height:270px">
-      <canvas id="cRecProp" role="img" aria-label="Evolução receita própria 2022-2025">Receita própria.</canvas>
-    </div>
-    <p class="src">Fonte: Quadro 9 — R&C 2025</p>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">Resultado orçamental 2025 — resumo simplificado</div>
-  <div class="g3" style="margin-top:0.5rem">
-    <div class="bigstat green" style="margin-bottom:0">
-      <div class="bs-label">Receitas correntes</div>
-      <div class="bs-value green" style="font-size:22px">23,3 M€</div>
-      <div class="bs-note">Orçado: 22,7 M€ · +102,7%</div>
-      <div class="bs-analogy">As receitas do "dia a dia" superaram o previsto</div>
-    </div>
-    <div class="bigstat red" style="margin-bottom:0">
-      <div class="bs-label">Despesas correntes</div>
-      <div class="bs-value red" style="font-size:22px">19,3 M€</div>
-      <div class="bs-note">Orçado: 21,8 M€ · 88,8% exec.</div>
-      <div class="bs-analogy">Salários, serviços, manutenção do dia a dia</div>
-    </div>
-    <div class="bigstat green" style="margin-bottom:0">
-      <div class="bs-label">Poupança corrente</div>
-      <div class="bs-value green" style="font-size:22px">3,96 M€</div>
-      <div class="bs-note">Sobra para investir</div>
-      <div class="bs-analogy">Por cada euro gasto no corrente, entrou 1,20€. Saldo positivo.</div>
-    </div>
-  </div>
-  <p class="src" style="margin-top:1rem">Fonte: Quadro 25 — Resultado Orçamental, R&C 2025</p>
-</div>
-</div>
-
-<!-- ══════ ECONOMIA ══════ -->
-<div id="eco" class="sec">
-<div class="sec-hdr">
-  <h2>Economia Local</h2>
-  <p>Empresas, emprego e comércio · o que se produz e o que se importa · INE 2024</p>
-</div>
-
-<div class="g4">
-  <div class="bigstat blue">
-    <div class="bs-label">Trabalhadores por conta de outrem</div>
-    <div class="bs-value blue">2 601</div>
-    <div class="bs-note">num total de 9 100 habitantes</div>
-    <div class="bs-analogy">Apenas 1 em cada 3,5 habitantes tem emprego registado. Numa cidade de 100 pessoas, só 28 trabalhariam</div>
-  </div>
-  <div class="bigstat blue">
-    <div class="bs-label">Volume de negócios (2023)</div>
-    <div class="bs-value blue">113 M€</div>
-    <div class="bs-note">total das empresas do concelho</div>
-    <div class="bs-analogy">6,8% do total da NUTS III. Somos 10,9% da população regional mas geramos apenas 6,8% da riqueza</div>
-  </div>
-  <div class="bigstat red">
-    <div class="bs-label">Exportações (2024)</div>
-    <div class="bs-value red">765 mil €</div>
-    <div class="bs-note">o que vendemos para fora do país</div>
-    <div class="bs-analogy">Menos do que o preço médio de um apartamento em Lisboa (≈800 000€). Toda a produção exportada vale uma casa</div>
-  </div>
-  <div class="bigstat red">
-    <div class="bs-label">Saldo comercial</div>
-    <div class="bs-value red">−2,6 M€</div>
-    <div class="bs-note">importamos muito mais do que exportamos</div>
-    <div class="bs-analogy">Por cada €1 que vendemos lá fora, compramos €4,40. Portugal exporta mais do que importa (109%)</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">O peso de Montalegre na sua própria região</div>
-  <div class="abox">
-    <div class="abox-icon">⚖️</div>
-    <div class="abox-body">
-      <div class="abox-title">Somos 10,9% da população regional mas geramos apenas 6,8% da riqueza</div>
-      <div class="abox-text">Montalegre representa 10,9% dos habitantes do Alto Tâmega e Barroso, mas apenas 6,8% do volume de negócios e 1,0% das exportações regionais. Isto indica uma economia local menos produtiva do que a média regional — que já é das mais fracas do país.</div>
-    </div>
-  </div>
-  <div class="cbox" style="height:260px;margin-top:1rem">
-    <canvas id="cPesoReg" role="img" aria-label="Peso de Montalegre na NUTS III por indicador">Peso na região.</canvas>
-  </div>
-  <p class="src">Fonte: INE, Sistema de Contas Integradas das Empresas 2023 · Comércio Internacional 2024</p>
-</div>
-
-<div class="g2">
-  <div class="card">
-    <div class="ctitle">Exportações vs. importações — quanto vendemos e compramos lá fora</div>
-    <div class="abox red">
-      <div class="abox-icon">📦</div>
-      <div class="abox-body">
-        <div class="abox-title">Taxa de cobertura: 22,8%</div>
-        <div class="abox-text">Por cada €100 que Montalegre importa, exporta apenas €22,80. A média nacional é €109 — Portugal exporta mais do que importa. Montalegre está muito abaixo.</div>
+  <div id="d-pop2" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">O pior índice de envelhecimento da região — e um dos piores do país</div>
+        <div class="al-b">O Alto Tâmega e Barroso já é a região mais envelhecida de Portugal. E dentro desta região, Montalegre (551) é o caso mais extremo — acima da média regional (419) e quase 3× a média nacional (192).</div>
+      </div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Índice de envelhecimento — comparação</div>
+          <div class="cbox" style="height:220px"><canvas id="cEnvelh"></canvas></div>
+          <p class="src">INE 2024</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Estrutura etária — Montalegre vs. Portugal</div>
+          <div class="cbox" style="height:220px"><canvas id="cEtaria"></canvas></div>
+          <p class="src">INE, Estimativas 2024</p>
+        </div>
       </div>
     </div>
-    <div class="cbox" style="height:200px">
-      <canvas id="cComercio" role="img" aria-label="Exportações vs importações Montalegre NUTS III Portugal">Comércio internacional.</canvas>
-    </div>
-    <p class="src">Fonte: INE, Comércio Internacional 2024</p>
   </div>
-  <div class="card">
-    <div class="ctitle">Atividade dos terminais multibanco — pulso da economia local</div>
-    <div class="abox blue">
-      <div class="abox-icon">💳</div>
-      <div class="abox-body">
-        <div class="abox-title">Os levantamentos multibanco refletem a economia real do dia a dia</div>
-        <div class="abox-text">A variação mensal dos levantamentos e pagamentos em Montalegre mostra uma economia com picos sazonais (primavera e verão) e fraca atividade em inverno — padrão típico de economia turística e sazonal.</div>
+
+  <div id="d-pop3" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Em 4 anos nasceram 142 pessoas. Morreram 711.</div>
+        <div class="al-b">Entre 2021 e 2024, morreram 711 pessoas e nasceram 142. A diferença são 569 pessoas que o concelho perdeu em 4 anos só por esta via — sem contar com emigração. Em 2024, morreram 177 e nasceram 29: menos 148 pessoas, o equivalente a uma aldeia inteira num único ano.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Nascimentos vs. mortes em Montalegre (2021–2024)</div>
+        <div class="cbox" style="height:240px"><canvas id="cNatal"></canvas></div>
+        <p class="src">INE, Nados-vivos e Óbitos por Município</p>
       </div>
     </div>
-    <div class="cbox" style="height:180px">
-      <canvas id="cMB" role="img" aria-label="Variação multibanco mensal">Multibanco mensal.</canvas>
-    </div>
-    <p class="src">Fonte: SIBS nov 2024 – out 2025</p>
   </div>
-</div>
 
-<div class="card">
-  <div class="ctitle">Novas empresas criadas — constituição mensal (out 2024 – out 2025)</div>
-  <div class="abox green">
-    <div class="abox-icon">🏢</div>
-    <div class="abox-body">
-      <div class="abox-title">Em média, 3,5 novas empresas por mês</div>
-      <div class="abox-text">A taxa de sobrevivência ao fim de 2 anos (64,8%) é superior à média nacional (55,9%), o que é positivo. Mas o número absoluto de criação é muito reduzido para um território desta dimensão.</div>
-    </div>
-  </div>
-  <div class="cbox" style="height:190px;margin-top:0.5rem">
-    <canvas id="cEmpr" role="img" aria-label="Novas empresas criadas mensalmente">Novas empresas.</canvas>
-  </div>
-  <p class="src">Fonte: INE, Constituição de Pessoas Coletivas 2024/2025</p>
-</div>
-</div>
-
-<!-- ══════ TURISMO ══════ -->
-<div id="tur" class="sec">
-<div class="sec-hdr">
-  <h2>Turismo</h2>
-  <p>Um setor em crescimento — mas de onde partimos e onde estamos? · INE 2024</p>
-</div>
-
-<div class="g4">
-  <div class="bigstat green">
-    <div class="bs-label">Estabelecimentos hoteleiros</div>
-    <div class="bs-value green">29</div>
-    <div class="bs-note">33% de toda a NUTS III</div>
-    <div class="bs-analogy">Temos 1 em cada 3 camas da região. Em oferta, somos líderes. O problema está na procura.</div>
-  </div>
-  <div class="bigstat amber">
-    <div class="bs-label">Hóspedes em 2024</div>
-    <div class="bs-value amber">13 847</div>
-    <div class="bs-note">7% da NUTS III · 199 105 hóspedes</div>
-    <div class="bs-analogy">Com 33% das camas da região, recebemos 7% dos hóspedes. A oferta não está a ser aproveitada.</div>
-  </div>
-  <div class="bigstat amber">
-    <div class="bs-label">Estada média</div>
-    <div class="bs-value amber">1,7</div>
-    <div class="bs-note">noites por hóspede</div>
-    <div class="bs-analogy">Os visitantes ficam menos de 2 noites. Em Portugal a média é 2,5 noites. Passam e não ficam.</div>
-  </div>
-  <div class="bigstat amber">
-    <div class="bs-label">Proveitos por hóspede</div>
-    <div class="bs-value amber">~95€</div>
-    <div class="bs-note">Portugal: ~211€ por hóspede</div>
-    <div class="bs-analogy">Cada visitante gasta em Montalegre metade do que gastaria noutro destino nacional médio</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">O paradoxo do turismo local: muita oferta, pouca procura</div>
-  <div class="abox">
-    <div class="abox-icon">🛏️</div>
-    <div class="abox-body">
-      <div class="abox-title">Temos 33% das camas da região mas recebemos apenas 7% dos hóspedes regionais</div>
-      <div class="abox-text">Montalegre concentra um terço de toda a capacidade hoteleira do Alto Tâmega e Barroso. No entanto, capta apenas 7% dos hóspedes e 5,2% dos proveitos regionais. A taxa de ocupação estimada (~13%) é muito inferior à média nacional (~38%). O potencial turístico existe — ainda não está a ser convertido em impacto económico proporcional.</div>
-    </div>
-  </div>
-  <div class="cbox" style="height:250px;margin-top:1rem">
-    <canvas id="cTurPeso" role="img" aria-label="Peso de Montalegre na NUTS III por indicador turístico">Peso turismo na região.</canvas>
-  </div>
-  <p class="src">Fonte: INE, Inquérito à Permanência de Hóspedes na Hotelaria 2024</p>
-</div>
-
-<div class="g2">
-  <div class="card">
-    <div class="ctitle">Hóspedes mensais — sazonalidade do turismo (nov 2024 – out 2025)</div>
-    <div class="cbox" style="height:230px">
-      <canvas id="cHosp" role="img" aria-label="Hóspedes mensais em Montalegre">Hóspedes mensais.</canvas>
-    </div>
-    <p class="src">Fonte: INE, Hotelaria mensal 2024/2025</p>
-  </div>
-  <div class="card">
-    <div class="ctitle">Montalegre vs. NUTS III vs. Portugal — comparação turística</div>
-    <table class="ctbl">
-      <thead><tr><th>Indicador</th><th>Montalegre</th><th>NUTS III</th><th>Portugal</th></tr></thead>
-      <tbody>
-        <tr class="hl"><td>Estab. hoteleiros</td><td>29</td><td>87</td><td>8 173</td></tr>
-        <tr><td>Capacidade (camas)</td><td>516</td><td>3 071</td><td>492 262</td></tr>
-        <tr><td>Hóspedes</td><td>13 847</td><td>199 105</td><td>31 588 187</td></tr>
-        <tr><td>Dormidas</td><td>22 880</td><td>338 972</td><td>80 354 833</td></tr>
-        <tr><td>Estada média (noites)</td><td>1,7</td><td>1,7</td><td>2,5</td></tr>
-        <tr><td>Proveitos (mil €)</td><td>1 321</td><td>25 304</td><td>6 674 553</td></tr>
-        <tr><td>Proveitos/hóspede (€)</td><td style="color:var(--amber);font-weight:600">~95€</td><td>~127€</td><td style="color:var(--green);font-weight:600">~211€</td></tr>
-        <tr><td>Taxa ocup. cama (est.)</td><td style="color:var(--red);font-weight:600">~13%</td><td>~30%</td><td style="color:var(--green);font-weight:600">~38%</td></tr>
-        <tr><td>Hóspedes estrangeiros (%)</td><td>~13%</td><td>~14%</td><td>~57%</td></tr>
-      </tbody>
-    </table>
-    <p class="src">Fonte: INE, Inquérito Permanência de Hóspedes 2024</p>
-  </div>
-</div>
-</div>
-
-<!-- ══════ SOCIAL ══════ -->
-<div id="soc" class="sec">
-<div class="sec-hdr">
-  <h2>Social e Saúde</h2>
-  <p>Como vivemos, o que o município gasta em nós e como estamos de saúde · INE 2024</p>
-</div>
-
-<div class="g4">
-  <div class="bigstat red">
-    <div class="bs-label">Taxa de natalidade</div>
-    <div class="bs-value red">3,2‰</div>
-    <div class="bs-note">nascimentos por 1000 habitantes</div>
-    <div class="bs-analogy">Em cada grupo de 1000 pessoas, nascem apenas 3. Em Portugal nascem 7,8. Montalegre tem menos de metade.</div>
-  </div>
-  <div class="bigstat red">
-    <div class="bs-label">Taxa de mortalidade</div>
-    <div class="bs-value red">19,4‰</div>
-    <div class="bs-note">mortes por 1000 habitantes</div>
-    <div class="bs-analogy">Em cada 1000 pessoas, morrem 19,4 por ano. Em Portugal morrem 11,1. 74% acima da média nacional.</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">Gasto em cultura por hab.</div>
-    <div class="bs-value green">232€</div>
-    <div class="bs-note">por habitante por ano</div>
-    <div class="bs-analogy">3,7× a média nacional (63€/hab). O município investe muito em cultura — acima da média europeia para concelhos desta dimensão</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">Gasto em desporto por hab.</div>
-    <div class="bs-value green">186€</div>
-    <div class="bs-note">por habitante por ano</div>
-    <div class="bs-analogy">3,8× a média nacional (48€/hab). O investimento desportivo per capita é dos mais altos do país.</div>
-  </div>
-</div>
-
-<div class="g2">
-  <div class="card">
-    <div class="ctitle">Taxa de natalidade e mortalidade — comparação (‰)</div>
-    <div class="abox red">
-      <div class="abox-icon">📊</div>
-      <div class="abox-body">
-        <div class="abox-title">Montalegre tem a natalidade mais baixa e a mortalidade mais alta da região</div>
-        <div class="abox-text">A combinação de natalidade mínima (3,2‰) com mortalidade muito elevada (19,4‰) cria um saldo natural negativo de −16,2‰ — um dos piores do país.</div>
+  <div id="d-pop4" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">O 16.º maior concelho do país — com uma das menores densidades</div>
+        <div class="al-b">Montalegre ocupa 805 km² e é o 16.º maior concelho de Portugal (empatado com Grândola), num ranking liderado por Odemira (1 720 km²). Apesar desta enorme extensão, tem apenas 9 100 habitantes — uma densidade de 11,3 hab/km², muito abaixo da média nacional (116,6) e regional (28,6).</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Densidade populacional — Montalegre vs. região vs. Portugal</div>
+        <div class="cbox" style="height:200px"><canvas id="cDens"></canvas></div>
+        <p class="src">INE 2024</p>
       </div>
     </div>
-    <div class="cbox" style="height:220px">
-      <canvas id="cSaude" role="img" aria-label="Taxas de natalidade e mortalidade comparadas">Saúde comparada.</canvas>
+  </div>
+</div><!-- /pop -->
+
+
+<!-- ════════════════════════════════
+     SERVIÇOS PÚBLICOS
+════════════════════════════════ -->
+<div id="serv" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>🏥 A Sustentabilidade dos Serviços Públicos</h2>
+    <p>Com esta população e esta densidade, como se mantêm as escolas, os centros de saúde e os transportes?</p>
+  </div>
+
+  <div class="al" style="margin-bottom:1.5rem;border-left-width:5px;padding:1.1rem 1.2rem">
+    <div class="al-t" style="font-size:15px">A pergunta que todos devemos fazer</div>
+    <div class="al-b" style="font-size:13px;margin-top:4px">Com 29 crianças nascidas em 2024 e 9 100 habitantes dispersos por 805 km², como se mantém uma escola, um centro de saúde, uma linha de autocarro? Esta não é uma questão académica — é o desafio real de Montalegre para os próximos anos.</div>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact red" onclick="toggle('d-serv1',this)">
+      <div class="f-icon">🏫</div>
+      <div class="f-value red">29</div>
+      <div class="f-label">Crianças nascidas em 2024</div>
+      <div class="f-plain">Daqui a 6 anos, estas 29 crianças entrarão no 1.º ciclo em todo o concelho. Uma única turma — para 805 km². Em Portugal fecharam 1 808 escolas nos últimos anos, 1 027 delas no interior.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
-    <p class="src">Fonte: INE, Indicadores Demográficos 2024</p>
-  </div>
-  <div class="card">
-    <div class="ctitle">Despesa municipal per capita em cultura e desporto — Montalegre muito acima da média</div>
-    <div class="cbox" style="height:270px">
-      <canvas id="cCult" role="img" aria-label="Despesa per capita cultura e desporto">Cultura e desporto per capita.</canvas>
+
+    <div class="fact red" onclick="toggle('d-serv2',this)">
+      <div class="f-icon">🏥</div>
+      <div class="f-value red">11,3</div>
+      <div class="f-label">Habitantes por km²</div>
+      <div class="f-plain">Para servir a população dispersa pelo território, os serviços de saúde, transportes e apoio social percorrem distâncias enormes por muito poucos utilizadores. O custo por pessoa é muito mais elevado do que nos centros urbanos.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
-    <p class="src">Fonte: INE, Inquérito ao Financiamento Cultural e Desportivo 2024</p>
-  </div>
-</div>
 
-<div class="card">
-  <div class="ctitle">Despesa em cultura 2024 — detalhe e peso regional</div>
-  <table class="ctbl">
-    <thead><tr><th>Área Cultural</th><th>Montalegre (€)</th><th>NUTS III (€)</th><th>Peso</th><th>Per capita</th></tr></thead>
-    <tbody>
-      <tr class="hl"><td>Total atividades culturais</td><td>2 114 000</td><td>9 107 000</td><td><span class="badge bg">23,2%</span></td><td>232 €/hab.</td></tr>
-      <tr><td>— Património</td><td>859 000</td><td>2 423 000</td><td><span class="badge bg">35,5%</span></td><td>94 €/hab.</td></tr>
-      <tr><td>— Artes do espetáculo</td><td>718 000</td><td>2 633 000</td><td><span class="badge bg">27,3%</span></td><td>79 €/hab.</td></tr>
-      <tr><td>— Bibliotecas e arquivos</td><td>193 000</td><td>1 206 000</td><td><span class="badge bb">16,0%</span></td><td>21 €/hab.</td></tr>
-      <tr><td>— Atividades interdisciplinares</td><td>197 000</td><td>1 911 000</td><td><span class="badge bb">10,3%</span></td><td>22 €/hab.</td></tr>
-      <tr><td>Desporto e equipamentos</td><td>~1 692 000</td><td>~7 680 000</td><td>—</td><td>186 €/hab.</td></tr>
-    </tbody>
-  </table>
-  <p class="src">Fonte: INE, Inquérito ao Financiamento de Atividades Culturais, Criativas e Desportivas 2024</p>
-</div>
-</div>
-
-<!-- ══════ INVESTIMENTO ══════ -->
-<div id="inv" class="sec">
-<div class="sec-hdr">
-  <h2>Investimento Municipal 2025</h2>
-  <p>Em que é que o município investiu e com que resultados · R&C Montalegre 2025</p>
-</div>
-
-<div class="g4">
-  <div class="bigstat dark">
-    <div class="bs-label inv">PPI — Plano de investimentos</div>
-    <div class="bs-value inv">19,0 M€</div>
-    <div class="bs-note inv">orçamento de investimento 2025</div>
-    <div class="bs-analogy inv">São 2 087€ de investimento por habitante — uma das apostas mais altas entre municípios da mesma dimensão</div>
-  </div>
-  <div class="bigstat amber">
-    <div class="bs-label">PPI executado</div>
-    <div class="bs-value amber">12,4 M€</div>
-    <div class="bs-note">65% do previsto · ficaram por gastar 6,6 M€</div>
-    <div class="bs-analogy">Em cada 3€ previstos para investimento, foram gastos 2€. 1€ ficou por executar.</div>
-  </div>
-  <div class="bigstat blue">
-    <div class="bs-label">PAM — Atividades municipais</div>
-    <div class="bs-value blue">12,3 M€</div>
-    <div class="bs-note">despesas correntes operacionais</div>
-    <div class="bs-analogy">O funcionamento do município: serviços, recolha de lixo, água, cultura, ação social</div>
-  </div>
-  <div class="bigstat green">
-    <div class="bs-label">PAM executado</div>
-    <div class="bs-value green">10,8 M€</div>
-    <div class="bs-note">87,5% — boa execução</div>
-    <div class="bs-analogy">Em cada 100€ previstos para o funcionamento do município, gastaram-se 87,5€ — boa execução.</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ctitle">PPI 2025 — onde foi investido o dinheiro?</div>
-  <div class="abox">
-    <div class="abox-icon">🏗️</div>
-    <div class="abox-body">
-      <div class="abox-title">Transportes e infraestruturas foram o maior investimento (3,2 M€)</div>
-      <div class="abox-text">Das grandes áreas de investimento, os transportes e comunicações (estradas, pontes, caminhos) foram a prioridade, com 3,2 M€ executados. As funções sociais (saúde, educação, habitação) receberam 5,2 M€ mas com execução desigual — habitação ficou em apenas 23%.</div>
+    <div class="fact red" onclick="toggle('d-serv3',this)">
+      <div class="f-icon">👴</div>
+      <div class="f-value red">33,6%</div>
+      <div class="f-label">Da população tem 65 ou mais anos</div>
+      <div class="f-plain">Um terço dos habitantes precisa de cuidados de saúde, apoio social e mobilidade assistida. Mas a base de população ativa que financia e presta esses serviços está a diminuir todos os anos.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
     </div>
-  </div>
-  <div class="cbox" style="height:300px;margin-top:1rem">
-    <canvas id="cPPI" role="img" aria-label="PPI 2025 execução por área">PPI por área.</canvas>
-  </div>
-  <p class="src">Fonte: Quadro 27 — PPI, R&C 2025</p>
-</div>
 
-<div class="card">
-  <div class="ctitle">Taxas de execução do PPI por área — o que estava previsto e o que se concretizou</div>
-  <div class="cbox" style="height:320px">
-    <canvas id="cPPIexec" role="img" aria-label="Taxas de execução PPI 2025 por área">Execução PPI por área.</canvas>
+    <div class="fact amber" onclick="toggle('d-serv4',this)">
+      <div class="f-icon">📉</div>
+      <div class="f-value amber">−569</div>
+      <div class="f-label">Pessoas perdidas em 4 anos (só por via natural)</div>
+      <div class="f-plain">Entre 2021 e 2024, morreram 711 pessoas e nasceram 142. A diferença são 569 pessoas que o concelho perdeu só por esta via — sem contar com quem emigrou. É como se 4 aldeias de média dimensão tivessem desaparecido do mapa em 4 anos. Cada pessoa a menos é um utilizador a menos de uma escola, uma farmácia, um centro de saúde.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
   </div>
-  <div class="abox red" style="margin-top:1rem">
-    <div class="abox-icon">🔴</div>
-    <div class="abox-body">
-      <div class="abox-title">Habitação (23%), Desporto/Lazer (34%) e Ação Social (0%) com execução muito baixa</div>
-      <div class="abox-text">A rubrica Ação Social no PPI tinha dotação de apenas 100€ e executou 0€. Num município com população muito envelhecida, esta linha de investimento foi essencialmente inexistente em 2025. Habitação executou apenas 170 520€ dos 748 500€ orçados.</div>
+
+  <div id="d-serv1" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">O ciclo de degradação dos serviços educativos</div>
+        <div class="al-b">Menos crianças significa turmas mais pequenas. Turmas mais pequenas significam escolas encerradas ou agrupadas. Escolas encerradas obrigam as famílias a percorrer maiores distâncias. Maiores distâncias tornam o território menos atrativo para jovens famílias. Menos jovens famílias significa ainda menos crianças. É um ciclo que se se reforça e que é muito difícil de inverter sem intervenção deliberada.</div>
+      </div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Taxa bruta de escolarização 2024 — Montalegre vs. Portugal</div>
+          <div class="cbox" style="height:220px"><canvas id="cEduc"></canvas></div>
+          <p class="src">Ministério da Educação, DGEEC 2024</p>
+        </div>
+        <div>
+          <div class="al am">
+            <div class="al-t">Projeção: quantas crianças entram na escola cada ano?</div>
+            <div class="al-b">Com uma média de 35 nascimentos por ano (2021–2024), daqui a 6 anos entrarão no 1.º ciclo cerca de 35 crianças em todo o concelho — o equivalente a uma turma e meia. Para manter escolas de proximidade em 15 freguesias, este número é claramente insuficiente.</div>
+          </div>
+          <div class="al">
+            <div class="al-t">Portugal perdeu 1 808 escolas nos últimos anos</div>
+            <div class="al-b">Mais de metade dessas perdas (1 027) foram no interior do país — exatamente o contexto de Montalegre. A tendência nacional de encerramento de estabelecimentos de ensino afeta desproporcionadamente os territórios com baixa natalidade e densidade.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <p class="src">Fonte: Quadro 27 — PPI, R&C 2025</p>
-</div>
 
-<div class="card">
-  <div class="ctitle">PAM 2025 — atividades do município · execução por área</div>
-  <div class="cbox" style="height:280px">
-    <canvas id="cPAM" role="img" aria-label="PAM 2025 execução por área">PAM por área.</canvas>
+  <div id="d-serv2" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">O paradoxo do custo dos serviços em territórios de baixa densidade</div>
+        <div class="al-b">Prestar serviços públicos em territórios dispersos custa mais por habitante do que nas cidades — mas os residentes têm menor capacidade fiscal para os financiar. Um médico de família que serve 1 500 utentes numa cidade percorre poucos quilómetros. Em Montalegre, os mesmos 1 500 utentes estão distribuídos por dezenas de aldeias ao longo de 805 km². O custo de acesso é estruturalmente mais elevado.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Montalegre: território de baixa densidade — o que isso significa na prática</div>
+        <div class="g3" style="margin-top:.5rem">
+          <div class="bigstat red" style="margin-bottom:0;border-radius:8px">
+            <div class="bs-label">Área do concelho</div>
+            <div class="bs-value red" style="font-size:22px">805 km²</div>
+            <div class="bs-note">16.º maior de Portugal</div>
+            <div class="bs-analogy">Maior do que a soma de 115 concelhos do tipo São João da Madeira (8 km²). Um território vasto, quase vazio.</div>
+          </div>
+          <div class="bigstat amber" style="margin-bottom:0;border-radius:8px">
+            <div class="bs-label">Densidade actual</div>
+            <div class="bs-value amber" style="font-size:22px">11,3 hab/km²</div>
+            <div class="bs-note">Limiar crítico: &lt;8 hab/km²</div>
+            <div class="bs-analogy">Estamos acima do limiar crítico europeu de muito baixa densidade — mas a trajetória é descendente</div>
+          </div>
+          <div class="bigstat red" style="margin-bottom:0;border-radius:8px">
+            <div class="bs-label">Tendência</div>
+            <div class="bs-value red" style="font-size:22px">−0,5%</div>
+            <div class="bs-note">por ano de crescimento efetivo</div>
+            <div class="bs-analogy">Se a tendência se mantiver, em 10 anos seremos ~8 600 habitantes — já no limiar de muito baixa densidade</div>
+          </div>
+        </div>
+        <p class="src" style="margin-top:1rem">INE 2024 · Programa Nacional para a Coesão Territorial</p>
+      </div>
+    </div>
   </div>
-  <p class="src">Fonte: Plano de Atividades Municipal, R&C 2025</p>
-</div>
-</div>
 
-</main>
+  <div id="d-serv3" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Mais idosos, mais necessidade de cuidados — menos ativos para os prestar e financiar</div>
+        <div class="al-b">Com 33,6% da população acima dos 65 anos e uma taxa de mortalidade de 19,4‰, a procura de cuidados de saúde, apoio domiciliário e mobilidade assistida é crescente. Mas a população em idade ativa (15–64 anos) representa apenas 59% do total — e está a diminuir. São cada vez menos pessoas a suportar as necessidades de cada vez mais idosos.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Índice de dependência de idosos — evolução do desequilíbrio</div>
+        <div class="cbox" style="height:220px"><canvas id="cDep"></canvas></div>
+        <p class="src">INE 2024 · estimativas baseadas na estrutura etária</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-serv4" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">A trajetória demográfica coloca em causa a viabilidade de vários serviços</div>
+        <div class="al-b">Cada serviço público tem uma massa crítica mínima de utilizadores para ser viável. Abaixo desse número, o Estado tende a encerrar ou agregar esses serviços, obrigando as populações a percorrer maiores distâncias. Com a actual trajetória de declínio — −569 pessoas em 4 anos só por saldo natural — vários serviços de proximidade de Montalegre aproximam-se desse limiar nos próximos anos.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">O que acontece quando a população desce abaixo dos limiares de viabilidade dos serviços</div>
+        <table class="tbl">
+          <thead><tr><th>Serviço</th><th>Risco</th><th>Contexto de Montalegre</th></tr></thead>
+          <tbody>
+            <tr><td>🏫 Escolas do 1.º ciclo</td><td><span class="bd br">Alto</span></td><td>~29 nascimentos/ano · turmas cada vez mais pequenas</td></tr>
+            <tr><td>🏥 Extensões de saúde</td><td><span class="bd br">Alto</span></td><td>Portugal perdeu extensões em Valpaços e concelhos vizinhos</td></tr>
+            <tr><td>🚌 Transportes públicos</td><td><span class="bd br">Alto</span></td><td>Baixa densidade torna linhas economicamente inviáveis</td></tr>
+            <tr><td>💊 Farmácias</td><td><span class="bd ba">Médio</span></td><td>0,5 farmácias/1000 hab. · abaixo da média nacional</td></tr>
+            <tr><td>👶 Creches e pré-escolar</td><td><span class="bd ba">Médio</span></td><td>Taxa pré-escolarização 96,6% mas base de crianças a diminuir</td></tr>
+            <tr><td>🏛️ Serviços de apoio social</td><td><span class="bd ba">Médio</span></td><td>Crescente necessidade com população envelhecida</td></tr>
+          </tbody>
+        </table>
+        <p class="src">Análise baseada em INE 2024 · Programa Nacional para a Coesão Territorial · R&C Montalegre 2025</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /serv -->
+
+<!-- ════════════════════════════════
+     RENDIMENTOS E QUALIDADE DE VIDA
+════════════════════════════════ -->
+<div id="rendimentos" class="s-anchor sec-sep">
+  <div class="s-hdr">
+    <div class="s-hdr-rule"></div>
+    <h2>💼 Rendimentos e Qualidade de Vida</h2>
+    <p>O que ganham as pessoas, que serviços existem e quanto custam as casas · PORDATA 2023/2024</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact red" onclick="toggle('d-rend1',this)">
+      <div class="f-icon">💶</div>
+      <div class="f-value red">1 054€</div>
+      <div class="f-label">Salário médio mensal</div>
+      <div class="f-plain">O salário médio em Montalegre é 1 054€ por mês — 406€ abaixo da média nacional (1 461€). Quem trabalha aqui ganha 28% menos do que a média do país.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact red" onclick="toggle('d-rend2',this)">
+      <div class="f-icon">🏭</div>
+      <div class="f-value red">0</div>
+      <div class="f-label">Grandes empresas no concelho</div>
+      <div class="f-plain">Montalegre tem 1 709 empresas — mas nenhuma é grande. São 1 685 microempresas, 22 pequenas e apenas 2 médias. Sem grandes empregadores, não há emprego que segure os jovens.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-rend3',this)">
+      <div class="f-icon">🏠</div>
+      <div class="f-value amber">464€</div>
+      <div class="f-label">Preço mediano por m² de casa</div>
+      <div class="f-plain">Uma casa usada em Montalegre custa em mediana 464€/m². Em Portugal a mediana é ~1 700€/m². As casas são baratas — mas os salários também são baixos e não há emprego para fixar quem compra.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact red" onclick="toggle('d-rend4',this)">
+      <div class="f-icon">🎬</div>
+      <div class="f-value red">0</div>
+      <div class="f-label">Ecrãs de cinema e espetáculos ao vivo</div>
+      <div class="f-plain">Montalegre não tem nenhum ecrã de cinema nem regista sessões de espetáculos ao vivo formais. Para ver um filme numa sala, é necessário sair do concelho.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <!-- DETAIL 1 — Salários -->
+  <div id="d-rend1" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">28% abaixo da média nacional — a penalização salarial do interior</div>
+        <div class="al-b">Um trabalhador em Montalegre ganha em média 1 054€/mês. O mesmo trabalhador em Lisboa ganharia ~1 700€. A diferença acumulada ao longo de um ano é de quase 5 000€. Esta penalização salarial é um dos principais motivos de emigração dos jovens — não é apenas a falta de emprego, é também a qualidade do emprego disponível.</div>
+      </div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Ganho médio mensal — comparação (€/mês · 2023)</div>
+          <div class="cbox" style="height:220px"><canvas id="cSalario"></canvas></div>
+          <p class="src">PORDATA · INE, Quadros de Pessoal 2023</p>
+        </div>
+        <div>
+          <div class="al am">
+            <div class="al-t">Escolaridade média dos trabalhadores: 10,4 anos</div>
+            <div class="al-b">Os trabalhadores de Montalegre têm em média 10,4 anos de escolaridade — o valor mais alto entre os 5 municípios mais próximos. Mais escolaridade, salário mais baixo do que a média nacional. Isto sugere que os mais qualificados tendem a emigrar para onde os salários compensam.</div>
+          </div>
+          <div class="al">
+            <div class="al-t">Índice de sustentabilidade potencial: 1,27</div>
+            <div class="al-b">Por cada idoso, há apenas 1,27 pessoas em idade ativa. Em Portugal a proporção é 2,59. Isto significa que há cada vez menos pessoas a trabalhar e a pagar impostos para financiar as pensões, os serviços de saúde e o apoio social de uma população maioritariamente idosa.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL 2 — Empresas -->
+  <div id="d-rend2" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Uma economia de microempresas — sem âncoras de emprego</div>
+        <div class="al-b">Das 1 709 empresas do concelho, 98,6% são microempresas (menos de 10 trabalhadores). Não existe nenhuma grande empresa. Sem um grande empregador que ofereça dezenas ou centenas de postos de trabalho estáveis e bem remunerados, é muito difícil criar as condições para que jovens famílias se instalem e fiquem.</div>
+      </div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Estrutura empresarial por dimensão (2024)</div>
+          <div class="cbox" style="height:220px"><canvas id="cEmprDim"></canvas></div>
+          <p class="src">PORDATA · INE 2024</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Principais setores de atividade em Montalegre (2024)</div>
+          <table class="tbl">
+            <thead><tr><th>Setor</th><th>Posição</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Agricultura e produção animal</td><td>1.º</td></tr>
+              <tr><td>Comércio a retalho</td><td>2.º</td></tr>
+              <tr><td>Indústrias transformadoras</td><td>3.º</td></tr>
+              <tr><td>Restauração e similares</td><td>4.º</td></tr>
+              <tr><td>Atividades de saúde humana</td><td>5.º</td></tr>
+            </tbody>
+          </table>
+          <p class="src">PORDATA · IEFP 2024</p>
+          <div class="al am" style="margin-top:0.8rem;margin-bottom:0">
+            <div class="al-t">Economia assente na agricultura e no pequeno comércio</div>
+            <div class="al-b">Os setores dominantes — agricultura, comércio a retalho e restauração — são tipicamente de baixa remuneração e elevada sazonalidade. A ausência de indústria de média ou grande dimensão limita estruturalmente o nível salarial do concelho.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL 3 — Habitação -->
+  <div id="d-rend3" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">Casas baratas, mas sem procura — o paradoxo da habitação no interior</div>
+        <div class="al-b">O preço mediano de 464€/m² é um dos mais baixos do país. Uma casa de 100m² custa em mediana 46 400€ — o equivalente a menos de 4 anos de salário médio local. Em Lisboa, a mesma casa custaria ~170 000€. Apesar do preço baixo, o mercado imobiliário está deprimido porque não há procura suficiente: quem quer comprar casa tende a procurar onde há emprego.</div>
+      </div>
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Preço mediano de venda por m² — comparação (2024)</div>
+          <div class="cbox" style="height:220px"><canvas id="cCasas"></canvas></div>
+          <p class="src">PORDATA · INE 2024</p>
+        </div>
+        <div>
+          <div class="al gn">
+            <div class="al-t">10 922 alojamentos para 9 100 habitantes</div>
+            <div class="al-b">Montalegre tem mais alojamentos do que habitantes — 10 922 fogos concluídos para 9 100 residentes. Muitas destas casas são de veraneio ou estão desocupadas. A densidade de 13,6 alojamentos/km² é a menor entre os municípios vizinhos.</div>
+          </div>
+          <div class="al">
+            <div class="al-t">O círculo vicioso da habitação no interior</div>
+            <div class="al-b">Sem emprego não há procura de habitação. Sem procura de habitação os preços ficam baixos. Com preços baixos, os proprietários não investem na reabilitação. Com casas degradadas e abandonadas, o território torna-se menos atrativo. Com menos atratividade, menos emprego. O ciclo fecha-se.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL 4 — Serviços culturais -->
+  <div id="d-rend4" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Sem cinema, sem espetáculos formais — apesar do investimento em cultura</div>
+        <div class="al-b">Montalegre não tem nenhum ecrã de cinema nem regista sessões de espetáculos ao vivo formais (2023). O concelho gasta 232€ por habitante em "cultura" — maioritariamente em festas e eventos — mas não tem infraestrutura cultural permanente. Para ver um filme numa sala ou assistir a um espetáculo, os residentes têm de se deslocar a Chaves ou Braga.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Serviços de proximidade — Montalegre (2023/2024)</div>
+        <table class="tbl">
+          <thead><tr><th>Serviço</th><th>N.º</th><th>Rácio</th><th>vs. Portugal</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Farmácias</td><td>5</td><td>1 828 hab./farmácia</td><td><span class="bd bg">Melhor</span> (nacional: 3 412)</td></tr>
+            <tr><td>Balcões bancários</td><td>4</td><td>2 286 hab./balcão</td><td><span class="bd bg">Melhor</span> (nacional: 3 760)</td></tr>
+            <tr><td>Caixas multibanco</td><td>10</td><td>910 hab./ATM</td><td><span class="bd ba">Similar</span> (nacional: 863)</td></tr>
+            <tr class="hl"><td>Ecrãs de cinema</td><td>0</td><td>—</td><td><span class="bd br">Sem cobertura</span></td></tr>
+            <tr class="hl"><td>Espetáculos ao vivo</td><td>0</td><td>—</td><td><span class="bd br">Sem cobertura</span></td></tr>
+          </tbody>
+        </table>
+        <p class="src">PORDATA · INE 2023/2024</p>
+        <div class="al gn" style="margin-top:0.8rem;margin-bottom:0">
+          <div class="al-t">Serviços básicos com boa cobertura</div>
+          <div class="al-b">Farmácias e balcões bancários têm melhor cobertura per capita do que a média nacional — um ponto positivo para um território de baixa densidade. O desafio está nos serviços culturais e de lazer, que são fatores importantes de qualidade de vida e de atração de novos residentes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /rendimentos -->
+
+<!-- ════════════════════════════════
+     FINANÇAS
+════════════════════════════════ -->
+<div id="fin" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>💶 Finanças Municipais</h2>
+    <p>Como estão as finanças municipais e de onde vem o dinheiro · Relatório e Contas 2025</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact dark" onclick="toggle('d-fin1',this)">
+      <div class="f-icon">🏦</div>
+      <div class="f-value white">42,5 M€</div>
+      <div class="f-label inv">Orçamento total 2025</div>
+      <div class="f-plain inv">São 4 670€ por cada habitante — mais do que o valor de um salário mínimo mensal (870€) durante meio ano. É o maior orçamento de sempre do município.</div>
+      <div class="f-more inv">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact green" onclick="toggle('d-fin2',this)">
+      <div class="f-icon">✅</div>
+      <div class="f-value green">3,96 M€</div>
+      <div class="f-label">Poupança gerada em 2025</div>
+      <div class="f-plain">O município ganhou mais do que gastou no dia a dia. Sobram quase 4 milhões para investir. As contas correntes estão equilibradas.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-fin3',this)">
+      <div class="f-icon">⚠️</div>
+      <div class="f-value amber">65%</div>
+      <div class="f-label">Depende de Lisboa e da UE</div>
+      <div class="f-plain">Em cada 100€ que entram nas contas do município, 65€ vêm de transferências do Estado ou de fundos europeus. Apenas 16€ são gerados localmente.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact green" onclick="toggle('d-fin4',this)">
+      <div class="f-icon">💰</div>
+      <div class="f-value green">6,89 M€</div>
+      <div class="f-label">Saldo final positivo</div>
+      <div class="f-plain">O município fechou 2025 com um saldo positivo de 6,9 milhões de euros. As contas estão saneadas e sem dívida relevante.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <div id="d-fin1" class="detail">
+    <div class="detail-inner">
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Execução orçamental 2025 — previsto vs. realizado</div>
+          <div class="cbox" style="height:240px"><canvas id="cExec"></canvas></div>
+          <p class="src">Quadro 4 — R&C Montalegre 2025</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Resultado orçamental 2025</div>
+          <table class="tbl">
+            <thead><tr><th>Rubrica</th><th style="text-align:right">Valor (€)</th></tr></thead>
+            <tbody>
+              <tr><td>Receita corrente</td><td style="text-align:right">23 292 381</td></tr>
+              <tr><td>Despesa corrente</td><td style="text-align:right">19 336 612</td></tr>
+              <tr style="background:var(--green-l)"><td><strong>Poupança corrente</strong></td><td style="text-align:right;color:var(--green)"><strong>3 955 769</strong></td></tr>
+              <tr><td>Receita capital</td><td style="text-align:right">9 486 007</td></tr>
+              <tr><td>Despesa capital</td><td style="text-align:right">14 087 197</td></tr>
+              <tr style="background:var(--red-l)"><td><strong>Saldo capital</strong></td><td style="text-align:right;color:var(--red)"><strong>−4 601 190</strong></td></tr>
+              <tr><td>Saldo ano anterior</td><td style="text-align:right">7 538 932</td></tr>
+              <tr style="background:var(--green-l)"><td><strong>Saldo final</strong></td><td style="text-align:right;color:var(--green)"><strong>6 894 939</strong></td></tr>
+            </tbody>
+          </table>
+          <p class="src">Quadro 25 — R&C 2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-fin2" class="detail">
+    <div class="detail-inner">
+      <div class="al gn">
+        <div class="al-t">Receita corrente superou o orçamento em 102,7%</div>
+        <div class="al-b">As receitas do dia a dia (impostos, taxas, transferências correntes) superaram o que estava previsto. Isso significa que o município gerou mais receita do que esperava, o que é um sinal positivo de gestão corrente.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Evolução da receita própria 2022–2025 (o que o município gera localmente)</div>
+        <div class="cbox" style="height:220px"><canvas id="cRecProp"></canvas></div>
+        <p class="src">Quadro 9 — R&C 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-fin3" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">O que é a receita própria?</div>
+        <div class="al-b">São os impostos locais (IMI, IMT), as taxas camarárias, as rendas de terrenos e imóveis municipais. Apenas 16€ em cada 100€ de receita vêm destas fontes. Os restantes 84€ vêm do Estado central, de fundos europeus ou de saldos acumulados de anos anteriores.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">De onde vem cada 100€ do orçamento municipal?</div>
+        <div class="g2" style="margin-top:.5rem">
+          <div>
+            <div class="pb"><div class="pb-top"><span>Transferências do Estado</span><span style="font-weight:600;color:var(--blue)">42€</span></div><div class="pb-track"><div class="pb-fill" style="width:100%;background:var(--blue)"></div></div></div>
+            <div class="pb"><div class="pb-top"><span>Fundos e transferências de capital</span><span style="font-weight:600;color:#2980b9">23€</span></div><div class="pb-track"><div class="pb-fill" style="width:55%;background:#2980b9"></div></div></div>
+            <div class="pb"><div class="pb-top"><span>Saldo do ano anterior</span><span style="font-weight:600;color:var(--mid)">19€</span></div><div class="pb-track"><div class="pb-fill" style="width:45%;background:var(--mid)"></div></div></div>
+            <div class="pb"><div class="pb-top"><span>Receita própria (local)</span><span style="font-weight:600;color:var(--amber)">16€</span></div><div class="pb-track"><div class="pb-fill" style="width:38%;background:var(--amber)"></div></div></div>
+          </div>
+          <div class="cbox" style="height:200px"><canvas id="cRecEstr"></canvas></div>
+        </div>
+        <p class="src">Quadro 8 — R&C 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-fin4" class="detail">
+    <div class="detail-inner">
+      <div class="al gn">
+        <div class="al-t">Saldo positivo pelo 3.º ano consecutivo</div>
+        <div class="al-b">O município mantém uma gestão financeira equilibrada com saldo positivo. A dívida municipal está controlada. Este é um ponto forte das finanças locais — mesmo num contexto de população a diminuir e base fiscal a estreitar.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Receita própria por categoria 2022–2025</div>
+        <table class="tbl">
+          <thead><tr><th>Categoria</th><th style="text-align:right">2022</th><th style="text-align:right">2023</th><th style="text-align:right">2024</th><th style="text-align:right">2025</th><th>Var.</th></tr></thead>
+          <tbody>
+            <tr><td>Impostos diretos</td><td style="text-align:right">1 733 k€</td><td style="text-align:right">1 615 k€</td><td style="text-align:right">2 081 k€</td><td style="text-align:right">1 867 k€</td><td><span class="bd br">−10%</span></td></tr>
+            <tr><td>Rendimentos propriedade</td><td style="text-align:right">2 262 k€</td><td style="text-align:right">2 701 k€</td><td style="text-align:right">2 491 k€</td><td style="text-align:right">2 568 k€</td><td><span class="bd bg">+3%</span></td></tr>
+            <tr><td>Vendas bens/serviços</td><td style="text-align:right">1 747 k€</td><td style="text-align:right">1 613 k€</td><td style="text-align:right">1 966 k€</td><td style="text-align:right">1 569 k€</td><td><span class="bd br">−20%</span></td></tr>
+            <tr><td>Taxas e multas</td><td style="text-align:right">399 k€</td><td style="text-align:right">316 k€</td><td style="text-align:right">222 k€</td><td style="text-align:right">283 k€</td><td><span class="bd bg">+27%</span></td></tr>
+            <tr class="hl"><td><strong>Total</strong></td><td style="text-align:right"><strong>6 140 k€</strong></td><td style="text-align:right"><strong>6 244 k€</strong></td><td style="text-align:right"><strong>6 760 k€</strong></td><td style="text-align:right"><strong>6 286 k€</strong></td><td><span class="bd br">−7%</span></td></tr>
+          </tbody>
+        </table>
+        <p class="src">Quadro 9 — R&C 2025</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /fin -->
+
+
+<!-- ════════════════════════════════
+     ECONOMIA
+════════════════════════════════ -->
+<div id="eco" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>🏭 Economia Local</h2>
+    <p>Empresas, emprego e comércio — o que a economia local produz e exporta · INE 2024</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact blue" onclick="toggle('d-eco1',this)">
+      <div class="f-icon">👷</div>
+      <div class="f-value blue">2 601</div>
+      <div class="f-label">Trabalhadores registados</div>
+      <div class="f-plain">Apenas 1 em cada 3,5 habitantes tem emprego registado no concelho. Numa cidade de 100 pessoas, só 28 trabalhariam aqui.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact red" onclick="toggle('d-eco2',this)">
+      <div class="f-icon">📦</div>
+      <div class="f-value red">765 mil €</div>
+      <div class="f-label">O que vendemos para o mundo</div>
+      <div class="f-plain">Toda a produção exportada por Montalegre num ano vale menos do que um apartamento em Lisboa (~800 000€). E importamos 4,4× mais do que exportamos.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact blue" onclick="toggle('d-eco3',this)">
+      <div class="f-icon">🏢</div>
+      <div class="f-value blue">113 M€</div>
+      <div class="f-label">Volume de negócios total (2023)</div>
+      <div class="f-plain">Somos 10,9% da população da região mas geramos apenas 6,8% da riqueza regional. A economia local produz menos do que o seu peso demográfico sugere.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact green" onclick="toggle('d-eco4',this)">
+      <div class="f-icon">🌱</div>
+      <div class="f-value green">64,8%</div>
+      <div class="f-label">Empresas sobrevivem 2 anos</div>
+      <div class="f-plain">Das empresas criadas em Montalegre, 64,8% ainda estão ativas ao fim de 2 anos. A média nacional é 55,9% — aqui as empresas sobrevivem mais.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <div id="d-eco1" class="detail">
+    <div class="detail-inner">
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Peso de Montalegre na economia regional</div>
+          <div class="cbox" style="height:220px"><canvas id="cPesoReg"></canvas></div>
+          <p class="src">INE, Contas Integradas das Empresas 2023</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Novas empresas criadas por mês (out 2024 – out 2025)</div>
+          <div class="cbox" style="height:220px"><canvas id="cEmpr"></canvas></div>
+          <p class="src">INE, Constituição de Pessoas Coletivas 2024/2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-eco2" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Taxa de cobertura das exportações: 22,8%</div>
+        <div class="al-b">Por cada €100 que Montalegre importa, exporta apenas €22,80. Em Portugal a média é €109 — o país exporta mais do que importa. Montalegre está muito abaixo desta fasquia, o que significa que o dinheiro sai mas não entra em proporção equivalente.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Exportações vs. importações (2024)</div>
+        <div class="cbox" style="height:220px"><canvas id="cComercio"></canvas></div>
+        <p class="src">INE, Comércio Internacional 2024 · Portugal ÷1000 para escala</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-eco3" class="detail">
+    <div class="detail-inner">
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Atividade nos terminais multibanco — variação mensal (%)</div>
+          <div class="al bl" style="margin-bottom:.8rem">
+            <div class="al-t">O multibanco como barómetro da economia local</div>
+            <div class="al-b">Os levantamentos e pagamentos por multibanco mostram picos na primavera e verão — típico de uma economia sazonal com influência turística.</div>
+          </div>
+          <div class="cbox" style="height:180px"><canvas id="cMB"></canvas></div>
+          <p class="src">SIBS, nov 2024 – out 2025</p>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Indicadores económicos comparados</div>
+          <table class="tbl">
+            <thead><tr><th>Indicador</th><th>Montalegre</th><th>NUTS III</th><th>Portugal</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td>Pessoal ao serviço</td><td>2 601</td><td>25 132</td><td>4 944 491</td></tr>
+              <tr><td>Vol. negócios (M€)</td><td>113</td><td>1 661</td><td>545 818</td></tr>
+              <tr><td>VAB (M€)</td><td>33</td><td>529</td><td>157 731</td></tr>
+              <tr><td>Exportações (M€)</td><td>0,77</td><td>79,7</td><td>78 895</td></tr>
+              <tr><td>Importações (M€)</td><td>3,36</td><td>111,8</td><td>107 243</td></tr>
+              <tr><td>Tx. cobertura exp.</td><td style="color:var(--red)">22,8%</td><td>71,2%</td><td style="color:var(--green)">109,6%</td></tr>
+            </tbody>
+          </table>
+          <p class="src">INE, Empresas e Comércio Internacional 2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-eco4" class="detail">
+    <div class="detail-inner">
+      <div class="al gn">
+        <div class="al-t">Um sinal positivo: as empresas que nascem, sobrevivem</div>
+        <div class="al-b">A taxa de sobrevivência de 64,8% ao fim de 2 anos é superior à média nacional (55,9%) e regional (58,7%). Isto sugere que quem cria um negócio em Montalegre tem apoio local e procura suficiente para se manter — apesar do contexto demográfico difícil.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /eco -->
+
+
+<!-- ════════════════════════════════
+     TURISMO
+════════════════════════════════ -->
+<div id="tur" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>🏨 Turismo</h2>
+    <p>O turismo cresceu — mas partimos de uma base baixa e ainda estamos longe do potencial · INE 2024</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact green" onclick="toggle('d-tur1',this)">
+      <div class="f-icon">🛏️</div>
+      <div class="f-value green">29</div>
+      <div class="f-label">Estabelecimentos hoteleiros</div>
+      <div class="f-plain">Montalegre tem 33% de toda a oferta hoteleira do Alto Tâmega e Barroso. Em oferta de camas, somos líderes absolutos da região.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-tur2',this)">
+      <div class="f-icon">🧳</div>
+      <div class="f-value amber">13 847</div>
+      <div class="f-label">Hóspedes recebidos em 2024</div>
+      <div class="f-plain">Com 33% das camas da região, recebemos apenas 7% dos hóspedes regionais. A oferta existe — a procura não acompanha.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-tur3',this)">
+      <div class="f-icon">🌙</div>
+      <div class="f-value amber">1,7</div>
+      <div class="f-label">Noites de estada média</div>
+      <div class="f-plain">Os visitantes ficam menos de 2 noites. Em Portugal a média é 2,5 noites. Chegam, dormem e vão embora — sem ficar e gastar mais.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-tur4',this)">
+      <div class="f-icon">💳</div>
+      <div class="f-value amber">~95€</div>
+      <div class="f-label">Gasto médio por hóspede</div>
+      <div class="f-plain">Cada visitante gasta cerca de 95€ em Montalegre. A média nacional é 211€ — os nossos turistas gastam menos de metade do que nos outros destinos.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <div id="d-tur1" class="detail">
+    <div class="detail-inner">
+      <div class="al gn">
+        <div class="al-t">Líderes em oferta na região</div>
+        <div class="al-b">Com 29 estabelecimentos e 516 camas, Montalegre representa 33% dos alojamentos e 16,8% da capacidade total do Alto Tâmega e Barroso. A oferta é diversificada — maioritariamente turismo rural e de natureza.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Peso de Montalegre no turismo regional — oferta vs. procura</div>
+        <div class="cbox" style="height:220px"><canvas id="cTurPeso"></canvas></div>
+        <p class="src">INE, Inquérito à Permanência de Hóspedes 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-tur2" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">O paradoxo: 33% da oferta, 7% dos hóspedes</div>
+        <div class="al-b">A taxa de ocupação estimada é ~13%, muito abaixo da média nacional (~38%). Isto significa que as camas existem mas ficam vazias a maior parte do tempo. Há potencial — falta converter a oferta em procura real.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Hóspedes mensais — sazonalidade (nov 2024 – out 2025)</div>
+        <div class="cbox" style="height:210px"><canvas id="cHosp"></canvas></div>
+        <p class="src">INE, Hotelaria mensal 2024/2025</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-tur3" class="detail">
+    <div class="detail-inner">
+      <div class="card">
+        <div class="card-title">Comparação turística — Montalegre vs. região vs. Portugal</div>
+        <table class="tbl">
+          <thead><tr><th>Indicador</th><th>Montalegre</th><th>NUTS III</th><th>Portugal</th></tr></thead>
+          <tbody>
+            <tr class="hl"><td>Estabelecimentos</td><td>29 <span class="bd bg">33% da região</span></td><td>87</td><td>8 173</td></tr>
+            <tr><td>Capacidade (camas)</td><td>516 <span class="bd bg">16,8%</span></td><td>3 071</td><td>492 262</td></tr>
+            <tr><td>Hóspedes</td><td>13 847 <span class="bd ba">7%</span></td><td>199 105</td><td>31 588 187</td></tr>
+            <tr><td>Dormidas</td><td>22 880</td><td>338 972</td><td>80 354 833</td></tr>
+            <tr><td>Estada média (noites)</td><td style="color:var(--amber)">1,7</td><td>1,7</td><td style="color:var(--green)">2,5</td></tr>
+            <tr><td>Proveitos (mil €)</td><td>1 321</td><td>25 304</td><td>6 674 553</td></tr>
+            <tr><td>Gasto por hóspede (€)</td><td style="color:var(--amber)">~95€</td><td>~127€</td><td style="color:var(--green)">~211€</td></tr>
+            <tr><td>Taxa ocupação cama</td><td style="color:var(--red)">~13%</td><td>~30%</td><td style="color:var(--green)">~38%</td></tr>
+          </tbody>
+        </table>
+        <p class="src">INE, Inquérito à Permanência de Hóspedes 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-tur4" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">Turismo de passagem, não de destino</div>
+        <div class="al-b">A combinação de estada curta (1,7 noites) com baixo gasto por hóspede (~95€ vs. 211€ nacional) sugere que Montalegre é ainda visto como ponto de passagem e não como destino de eleição. Converter visitantes em turistas que ficam e gastam mais é o principal desafio do setor.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /tur -->
+
+
+<!-- ════════════════════════════════
+     SOCIAL
+════════════════════════════════ -->
+<div id="soc" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>❤️ Social e Saúde</h2>
+    <p>Indicadores de saúde, cultura e qualidade de vida · INE 2024</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact red" onclick="toggle('d-soc1',this)">
+      <div class="f-icon">📉</div>
+      <div class="f-value red">3,2‰</div>
+      <div class="f-label">Taxa de natalidade</div>
+      <div class="f-plain">Por cada 1000 habitantes, nascem 3,2 bebés por ano. Em Portugal nascem 7,8. Somos menos de metade da média nacional — e a tendência é de queda.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact red" onclick="toggle('d-soc2',this)">
+      <div class="f-icon">📈</div>
+      <div class="f-value red">19,4‰</div>
+      <div class="f-label">Taxa de mortalidade</div>
+      <div class="f-plain">Por cada 1000 habitantes, morrem 19,4 por ano. Em Portugal morrem 11,1. A nossa taxa é 74% acima da média — consequência direta do envelhecimento extremo.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-soc3',this)">
+      <div class="f-icon">🎪</div>
+      <div class="f-value amber">232€</div>
+      <div class="f-label">Gasto em festas, feiras e eventos por habitante</div>
+      <div class="f-plain">O que o INE classifica como "cultura" são sobretudo festas populares, feiras e eventos — como a Feira do Fumeiro ou as festas da Sexta-feira 13. São 232€ por habitante, 3,7× a média nacional. Trazem visitantes, mas a pergunta é: é esta a melhor prioridade?</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact green" onclick="toggle('d-soc4',this)">
+      <div class="f-icon">⚽</div>
+      <div class="f-value green">186€</div>
+      <div class="f-label">Gasto em desporto por habitante</div>
+      <div class="f-plain">186€ por habitante por ano em desporto — 3,8× a média nacional (48€). O investimento desportivo per capita é dos mais elevados do país.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <div id="d-soc1" class="detail">
+    <div class="detail-inner">
+      <div class="g2">
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Natalidade e mortalidade comparadas (‰)</div>
+          <div class="cbox" style="height:240px"><canvas id="cSaude"></canvas></div>
+          <p class="src">INE, Indicadores Demográficos 2024</p>
+        </div>
+        <div>
+          <div class="al">
+            <div class="al-t">Saldo natural: −16,2‰</div>
+            <div class="al-b">A diferença entre mortalidade (19,4‰) e natalidade (3,2‰) resulta num saldo natural de −16,2‰ — um dos piores do país. Por cada 1000 habitantes, o concelho perde 16 pessoas por ano só por esta via.</div>
+          </div>
+          <div class="al am">
+            <div class="al-t">Contexto regional também preocupante</div>
+            <div class="al-b">A NUTS III Alto Tâmega tem taxa de natalidade de 4,8‰ e mortalidade de 17‰. Montalegre está abaixo da natalidade regional e acima da mortalidade — o pior dos dois mundos dentro de uma região já difícil.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-soc2" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Uma população muito envelhecida tem naturalmente mais mortes</div>
+        <div class="al-b">A taxa de mortalidade elevada (19,4‰) é consequência direta do perfil etário da população. Com 33,6% de habitantes com 65+ anos, é esperado que as mortes sejam muito mais frequentes do que a média nacional (22% de idosos). Não é uma questão de falta de cuidados — é uma questão de estrutura etária.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-soc3" class="detail">
+    <div class="detail-inner">
+      <div class="al am">
+        <div class="al-t">O que é realmente este investimento em "cultura"?</div>
+        <div class="al-b">Quando o INE regista a despesa municipal em cultura, inclui festas populares, feiras temáticas, arraiais, eventos de animação territorial e espetáculos ao ar livre. Em Montalegre, isso significa eventos como a <strong>Feira do Fumeiro</strong>, as <strong>festas da Sexta-feira 13</strong>, as festas de verão nas aldeias e outros eventos de animação territorial. Não se trata de museus, teatros ou conservatórios.</div>
+      </div>
+      <div class="g2">
+        <div>
+          <div class="al gn">
+            <div class="al-t">O lado positivo: estes eventos têm valor real</div>
+            <div class="al-b">As festas e feiras atraem visitantes, geram consumo local, preservam a identidade do território e criam visibilidade para Montalegre. A Feira do Fumeiro é uma referência nacional que atrai milhares de visitantes. As festas da Sexta-feira 13 são um caso único em Portugal — sempre que o dia 13 cai numa sexta-feira, Montalegre organiza uma festa que transforma a superstição em celebração e atrai milhares de pessoas ao concelho. Este investimento contribui, ainda que indiretamente, para o turismo e para manter viva a memória das comunidades.</div>
+          </div>
+          <div class="al">
+            <div class="al-t">O lado que se questiona: é suficiente para fixar pessoas?</div>
+            <div class="al-b">Uma festa dura um fim de semana. Uma família fica porque há emprego, escola, casa e serviços. Com 232€ por habitante em eventos e apenas 19€ por habitante em habitação (PPI 2025), a questão que se coloca é de prioridades: estamos a investir no que traz pessoas de visita — ou no que as faz ficar?</div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:0">
+          <div class="card-title">Despesa em "cultura" vs. investimento em habitação — 2025</div>
+          <div class="cbox" style="height:200px"><canvas id="cCultHab"></canvas></div>
+          <p class="src">INE, Financiamento Cultural 2024 · PPI Montalegre 2025</p>
+          <div class="al am" style="margin-top:0.8rem;margin-bottom:0">
+            <div class="al-t">232€/hab. em cultura · 19€/hab. em habitação</div>
+            <div class="al-b">Por cada euro investido em habitação, foram gastos 12€ em cultura e eventos. Num concelho que perde população, a equação das prioridades merece reflexão pública.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Despesa cultural por categoria 2024 — Montalegre vs. região vs. Portugal (€/hab.)</div>
+        <div class="cbox" style="height:230px"><canvas id="cCult"></canvas></div>
+        <p class="src">INE, Inquérito ao Financiamento de Atividades Culturais 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-soc4" class="detail">
+    <div class="detail-inner">
+      <div class="al gn">
+        <div class="al-t">O investimento em desporto também tem mérito</div>
+        <div class="al-b">Os 186€ por habitante em desporto financiam equipamentos desportivos, apoio a associações, e programas de atividade física — importantes para a qualidade de vida de uma população envelhecida. Este valor é 3,8× a média nacional (48€) e reflete um esforço genuíno de manter serviços de proximidade num território disperso.</div>
+      </div>
+      <div class="al am">
+        <div class="al-t">O contexto que importa ter presente</div>
+        <div class="al-b">Somando cultura (232€) e desporto (186€), o município gasta 418€ por habitante nestas duas áreas — quase meio milhar de euros por residente. É um investimento significativo e visível. A questão que a demografia coloca é se este modelo de despesa é sustentável quando a base de população diminui todos os anos e os serviços essenciais — saúde, habitação, apoio social — precisam também de resposta.</div>
+      </div>
+    </div>
+  </div>
+</div><!-- /soc -->
+
+
+<!-- ════════════════════════════════
+     INVESTIMENTO
+════════════════════════════════ -->
+<div id="inv" class="s-anchor sec-sep">
+  <div class="s-hdr"><div class="s-hdr-rule"></div><h2>🔨 Investimento 2025</h2>
+    <p>Onde foi aplicado o investimento municipal e qual a taxa de execução · R&C 2025</p>
+  </div>
+
+  <div class="facts">
+
+    <div class="fact dark" onclick="toggle('d-inv1',this)">
+      <div class="f-icon">🏗️</div>
+      <div class="f-value white">19 M€</div>
+      <div class="f-label inv">Plano de investimentos (PPI)</div>
+      <div class="f-plain inv">O plano de obras e investimentos previa gastar 19 milhões de euros em 2025. São 2 087€ de investimento por habitante — um valor elevado para um município desta dimensão.</div>
+      <div class="f-more inv">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact amber" onclick="toggle('d-inv2',this)">
+      <div class="f-icon">📊</div>
+      <div class="f-value amber">65%</div>
+      <div class="f-label">Do investimento foi concretizado</div>
+      <div class="f-plain">Em cada 3€ previstos para obras e investimento, foram gastos 2€. Ficaram por executar 6,6 milhões de euros de projetos previstos.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact blue" onclick="toggle('d-inv3',this)">
+      <div class="f-icon">🛣️</div>
+      <div class="f-value blue">3,2 M€</div>
+      <div class="f-label">Investido em estradas e transportes</div>
+      <div class="f-plain">O maior investimento foi em infraestruturas de transporte (estradas, caminhos, pontes) — 3,2 M€ executados de 4,1 M€ previstos (78% de execução).</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+    <div class="fact red" onclick="toggle('d-inv4',this)">
+      <div class="f-icon">🏠</div>
+      <div class="f-value red">23%</div>
+      <div class="f-label">Do previsto em Habitação foi gasto</div>
+      <div class="f-plain">Estavam previstos 748 500€ para habitação. Foram gastos apenas 170 520€ — 23% do previsto. E para Ação Social: estava orçado 100€ e foram gastos 0€.</div>
+      <div class="f-more">Saber mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+    </div>
+
+  </div>
+
+  <div id="d-inv1" class="detail">
+    <div class="detail-inner">
+      <div class="card">
+        <div class="card-title">PPI 2025 — investimento previsto vs. realizado por área</div>
+        <div class="cbox" style="height:300px"><canvas id="cPPI"></canvas></div>
+        <p class="src">Quadro 27 — PPI, R&C 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-inv2" class="detail">
+    <div class="detail-inner">
+      <div class="card">
+        <div class="card-title">Taxa de execução por área de investimento (%)</div>
+        <div class="cbox" style="height:300px"><canvas id="cPPIexec"></canvas></div>
+        <p class="src">Quadro 27 — PPI, R&C 2025 · Verde ≥75% · Amarelo 50–74% · Vermelho &lt;50%</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-inv3" class="detail">
+    <div class="detail-inner">
+      <div class="card">
+        <div class="card-title">PAM 2025 — atividades e serviços do município (87,5% executado)</div>
+        <div class="cbox" style="height:280px"><canvas id="cPAM"></canvas></div>
+        <p class="src">Plano de Atividades Municipal, R&C 2025</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="d-inv4" class="detail">
+    <div class="detail-inner">
+      <div class="al">
+        <div class="al-t">Habitação e Ação Social: as áreas com menor execução</div>
+        <div class="al-b">Num município com população envelhecida e em declínio, estas são precisamente as áreas onde o investimento seria mais necessário. Habitação executou apenas 23% do previsto (170 520€ de 748 500€). A rubrica Ação Social no plano de investimentos tinha dotação de apenas 100€ — e executou 0€.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Detalhe das rubricas sociais do PPI 2025</div>
+        <table class="tbl">
+          <thead><tr><th>Área</th><th style="text-align:right">Orçado (€)</th><th style="text-align:right">Executado (€)</th><th>Execução</th></tr></thead>
+          <tbody>
+            <tr><td>Educação</td><td style="text-align:right">1 724 403</td><td style="text-align:right">1 024 205</td><td><span class="bd ba">59%</span></td></tr>
+            <tr><td>Saúde</td><td style="text-align:right">1 154 000</td><td style="text-align:right">769 780</td><td><span class="bd bg">67%</span></td></tr>
+            <tr><td>Habitação</td><td style="text-align:right">748 500</td><td style="text-align:right">170 520</td><td><span class="bd br">23%</span></td></tr>
+            <tr><td>Desporto e Lazer</td><td style="text-align:right">1 866 765</td><td style="text-align:right">639 788</td><td><span class="bd br">34%</span></td></tr>
+            <tr class="hl"><td>Ação Social</td><td style="text-align:right">100</td><td style="text-align:right">0</td><td><span class="bd br">0%</span></td></tr>
+            <tr><td>Ordenamento Território</td><td style="text-align:right">1 590 551</td><td style="text-align:right">1 320 934</td><td><span class="bd bg">83%</span></td></tr>
+            <tr><td>Saneamento</td><td style="text-align:right">537 305</td><td style="text-align:right">410 201</td><td><span class="bd bg">76%</span></td></tr>
+            <tr><td>Abastecimento Água</td><td style="text-align:right">893 916</td><td style="text-align:right">688 560</td><td><span class="bd bg">77%</span></td></tr>
+          </tbody>
+        </table>
+        <p class="src">Quadro 27 — PPI, R&C 2025</p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div><!-- /inv -->
+
+</div><!-- /wrap -->
 
 <footer>
   <strong>Montalegre em Números · Retrato Socioeconómico 2025</strong><br>
@@ -694,81 +1218,97 @@ footer strong{color:#aab7b8}
 </footer>
 
 <script>
-// Scroll spy — highlight nav link matching the section in view
-const sections = document.querySelectorAll('.sec');
-const navLinks = document.querySelectorAll('.nbtn');
-function onScroll(){
-  let current='';
-  sections.forEach(s=>{
-    const top=s.getBoundingClientRect().top;
-    if(top<=80) current=s.id;
-  });
-  navLinks.forEach(a=>{
-    a.classList.remove('active');
-    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
-  });
+// ── TOGGLE DETAIL PANELS ──
+function toggle(id, card) {
+  const panel = document.getElementById(id);
+  const isOpen = panel.classList.contains('open');
+  // Close all panels in the same facts grid
+  const grid = card.closest('.facts');
+  if(grid){
+    grid.querySelectorAll('.detail').forEach(d => d.classList.remove('open'));
+    grid.querySelectorAll('.fact').forEach(f => f.style.borderRadius = '12px');
+  }
+  if (!isOpen) {
+    panel.classList.add('open');
+    card.style.borderRadius = '12px 12px 0 0';
+    panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
 }
-window.addEventListener('scroll',onScroll,{passive:true});
-onScroll();
 
-Chart.defaults.font.family="'Inter',sans-serif";
-Chart.defaults.font.size=12;
-Chart.defaults.color='#566573';
-const G='rgba(0,0,0,0.06)';
+// ── SCROLL SPY ──
+const secs = document.querySelectorAll('.s-anchor');
+const nas = document.querySelectorAll('.na');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (s.getBoundingClientRect().top <= 80) cur = s.id; });
+  nas.forEach(a => {
+    a.classList.remove('on');
+    if (a.getAttribute('href') === '#' + cur) a.classList.add('on');
+  });
+}, {passive: true});
 
-// 1. Estrutura etária
-new Chart('cEtaria',{type:'bar',data:{labels:['Jovens 0–14 anos','Adultos 15–64 anos','Idosos 65+ anos'],datasets:[{label:'Montalegre',data:[7.4,59,33.6],backgroundColor:'#c0392b',borderRadius:4},{label:'Portugal',data:[13.0,65.0,22.0],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:14}}},scales:{x:{grid:{color:G},ticks:{callback:v=>v+'%'},max:80},y:{grid:{color:G}}}}});
+// ── CHARTS ──
+Chart.defaults.font.family = "'Inter',sans-serif";
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#555';
+Chart.defaults.font.family = "'Inter',sans-serif";
+const G = '#e8e4dc';
 
-// 2. Natal
-new Chart('cNatal',{type:'bar',data:{labels:['2021','2022','2023','2024'],datasets:[{label:'Nascimentos',data:[44,39,30,29],backgroundColor:'#1a5276',borderRadius:4},{label:'Mortes',data:[163,189,182,177],backgroundColor:'#c0392b',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:14}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
+new Chart('cCresc',{type:'bar',data:{labels:['Montalegre','Alto Tâmega','Norte','Portugal'],datasets:[{data:[-0.5,-0.3,0.5,1.0],backgroundColor:['#E3120B','#e67e22','#1a6b3c','#003366'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'}},x:{grid:{color:G}}}}});
 
-// 3. Crescimento
-new Chart('cCresc',{type:'bar',data:{labels:['Montalegre','Alto Tâmega (NUTS III)','Norte (NUTS II)','Portugal'],datasets:[{label:'Crescimento efetivo anual (%)',data:[-0.5,-0.3,0.5,1.0],backgroundColor:['#c0392b','#e67e22','#1e8449','#1a5276'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y+'%'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'}},x:{grid:{color:G}}}}});
+new Chart('cEnvelh',{type:'bar',data:{labels:['Montalegre','Boticas','Rib. Pena','Valpaços','NUTS III','Chaves','Portugal'],datasets:[{data:[550.6,480,440,370,419.1,340,192.4],backgroundColor:['#E3120B','#e74c3c','#e74c3c','#e67e22','#B7600A','#1a6b3c','#003366'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' idosos/100 jovens'}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
 
-// 4. Vizinhos
-new Chart('cVizinhos',{type:'bar',data:{labels:['Montalegre','Boticas','Ribeira\nde Pena','Valpaços','NUTS III\n(média)','Chaves','Portugal'],datasets:[{label:'Índice de envelhecimento (idosos por 100 jovens)',data:[550.6,480,440,370,419.1,340,192.4],backgroundColor:['#c0392b','#e74c3c','#e74c3c','#e67e22','#d68910','#1e8449','#1a5276'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y+' idosos por 100 jovens'}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
+new Chart('cEtaria',{type:'bar',data:{labels:['Jovens 0–14','Adultos 15–64','Idosos 65+'],datasets:[{label:'Montalegre',data:[7.4,59,33.6],backgroundColor:'#E3120B',borderRadius:4},{label:'Portugal',data:[13.0,65.0,22.0],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{x:{grid:{color:G},ticks:{callback:v=>v+'%'}},y:{grid:{color:G}}}}});
 
-// 5. Receita estrutura donut
-new Chart('cRecEstr',{type:'doughnut',data:{labels:['Transf. correntes do Estado (42%)','Transf. de capital/fundos (23%)','Saldo ano anterior (19%)','Receita própria local (16%)'],datasets:[{data:[17.11,9.38,7.54,6.29],backgroundColor:['#1a5276','#2980b9','#566573','#d68910'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:8,font:{size:11}}},tooltip:{callbacks:{label:ctx=>ctx.label.split('(')[0].trim()+': '+ctx.parsed.toFixed(1)+' M€'}}}}});
+new Chart('cNatal',{type:'bar',data:{labels:['2021','2022','2023','2024'],datasets:[{label:'Nascimentos',data:[44,39,30,29],backgroundColor:'#003366',borderRadius:4},{label:'Mortes',data:[163,189,182,177],backgroundColor:'#E3120B',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
 
-// 6. Execução
-new Chart('cExec',{type:'bar',data:{labels:['Rec. Corrente','Rec. Capital','Desp. Corrente','Desp. Capital'],datasets:[{label:'Orçamento',data:[22.67,12.30,21.78,20.73],backgroundColor:'rgba(26,82,118,0.25)',borderRadius:4},{label:'Executado',data:[23.29,9.49,19.34,14.09],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+' M€'}},x:{grid:{color:G},ticks:{maxRotation:20}}}}});
+new Chart('cDens',{type:'bar',data:{labels:['Montalegre','Boticas','Ribeira Pena','Valpaços','NUTS III','Chaves','Portugal'],datasets:[{label:'hab/km²',data:[11.3,17,37,27,28.6,63,116.6],backgroundColor:['#E3120B','#e74c3c','#e74c3c','#e67e22','#B7600A','#1a6b3c','#003366'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G}},x:{grid:{color:G}}}}});
 
-// 7. Receita própria linha
-new Chart('cRecProp',{type:'line',data:{labels:['2022','2023','2024','2025'],datasets:[{label:'Total receitas próprias',data:[6.14,6.24,6.76,6.29],borderColor:'#d68910',backgroundColor:'rgba(214,137,16,0.1)',tension:0.3,pointRadius:6,fill:true,borderWidth:2},{label:'Impostos diretos',data:[1.73,1.61,2.08,1.87],borderColor:'#c0392b',tension:0.3,pointRadius:4,borderDash:[4,3]},{label:'Rendimentos propriedade',data:[2.26,2.70,2.49,2.57],borderColor:'#1a5276',tension:0.3,pointRadius:4,borderDash:[4,3]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v.toFixed(1)+' M€'},min:1},x:{grid:{color:G}}}}});
+new Chart('cExec',{type:'bar',data:{labels:['Rec. Corrente','Rec. Capital','Desp. Corrente','Desp. Capital'],datasets:[{label:'Orçamento',data:[22.67,12.30,21.78,20.73],backgroundColor:'rgba(0,51,102,0.15)',borderRadius:4},{label:'Executado',data:[23.29,9.49,19.34,14.09],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+' M€'}},x:{grid:{color:G},ticks:{maxRotation:20}}}}});
 
-// 8. Peso regional
-new Chart('cPesoReg',{type:'bar',data:{labels:['População','Pessoal\nao serviço','Vol. de\nnegócios','VAB\n(riqueza)','Exportações'],datasets:[{label:'Peso de Montalegre na NUTS III (%)',data:[10.9,10.4,6.8,6.2,1.0],backgroundColor:['#1a5276','#1a5276','#d68910','#d68910','#c0392b'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y+'% da NUTS III'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'},max:15},x:{grid:{color:G}}}}});
+new Chart('cRecProp',{type:'line',data:{labels:['2022','2023','2024','2025'],datasets:[{label:'Total receita própria',data:[6.14,6.24,6.76,6.29],borderColor:'#B7600A',backgroundColor:'rgba(183,96,10,0.08)',tension:0.3,pointRadius:6,fill:true,borderWidth:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},ticks:{callback:v=>v.toFixed(1)+' M€'},min:5.5},x:{grid:{color:G}}}}});
 
-// 9. Comércio
-new Chart('cComercio',{type:'bar',data:{labels:['Montalegre','NUTS III','Portugal (÷1000)'],datasets:[{label:'Exportações (M€)',data:[0.77,79.7,78.9],backgroundColor:'#1e8449',borderRadius:4},{label:'Importações (M€)',data:[3.36,111.8,107.2],backgroundColor:'#c0392b',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}},tooltip:{callbacks:{label:ctx=>{const l=ctx.dataset.label;const v=ctx.parsed.y;return ctx.dataIndex===2?l+': '+(v*1000).toFixed(0)+' M€':l+': '+v.toFixed(2)+' M€'}}}},scales:{y:{grid:{color:G}},x:{grid:{color:G}}}}});
+new Chart('cRecEstr',{type:'doughnut',data:{labels:['Estado (42%)','Fundos (23%)','Saldo ant. (19%)','Local (16%)'],datasets:[{data:[17.11,9.38,7.54,6.29],backgroundColor:['#003366','#0066cc','#666','#B7600A'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:6,font:{size:11}}}}}});
 
-// 10. Multibanco
-new Chart('cMB',{type:'line',data:{labels:['nov','dez','jan','fev','mar','abr','mai','jun','jul','ago','set','out'],datasets:[{label:'Montalegre (var. %)',data:[11.1,-5.1,6.6,9.9,4.2,14.1,4.9,3.3,1.8,0.1,4.6,7.0],borderColor:'#c0392b',tension:0.3,pointRadius:4,fill:false},{label:'Portugal',data:[6.6,1.8,4.9,5.4,4.2,4.6,4.9,3.4,1.8,1.4,4.6,7.0],borderColor:'#1a5276',tension:0.3,pointRadius:4,borderDash:[5,4],fill:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'}},x:{grid:{color:G},ticks:{autoSkip:false,maxRotation:45,font:{size:10}}}}}});
+new Chart('cPesoReg',{type:'bar',data:{labels:['População','Trabalhadores','Vol. negócios','Riqueza (VAB)','Exportações'],datasets:[{data:[10.9,10.4,6.8,6.2,1.0],backgroundColor:['#003366','#003366','#B7600A','#B7600A','#E3120B'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'% da NUTS III'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'},max:15},x:{grid:{color:G}}}}});
 
-// 11. Novas empresas
-new Chart('cEmpr',{type:'bar',data:{labels:['out-24','nov-24','dez-24','jan-25','fev-25','mar-25','abr-25','mai-25','jun-25','jul-25','ago-25','set-25'],datasets:[{label:'Novas empresas',data:[3,0,3,4,5,3,4,4,2,2,11,2],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},beginAtZero:true,ticks:{stepSize:1}},x:{grid:{color:G},ticks:{maxRotation:45,autoSkip:false,font:{size:10}}}}}});
+new Chart('cEmpr',{type:'bar',data:{labels:['out','nov','dez','jan','fev','mar','abr','mai','jun','jul','ago','set'],datasets:[{data:[3,0,3,4,5,3,4,4,2,2,11,2],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},beginAtZero:true,ticks:{stepSize:1}},x:{grid:{color:G},ticks:{autoSkip:false}}}}});
 
-// 12. Turismo peso
-new Chart('cTurPeso',{type:'bar',data:{labels:['Estabelecimentos\nhoteleiros','Capacidade\nde alojamento','Hóspedes\nrecebidos','Dormidas','Proveitos\n(receita)'],datasets:[{label:'Peso de Montalegre na NUTS III (%)',data:[33.3,16.8,7.0,6.7,5.2],backgroundColor:['#1e8449','#1e8449','#d68910','#d68910','#c0392b'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.y.toFixed(1)+'% da NUTS III'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'},max:40},x:{grid:{color:G}}}}});
+new Chart('cComercio',{type:'bar',data:{labels:['Montalegre','NUTS III','Portugal (÷1000)'],datasets:[{label:'Exportações',data:[0.77,79.7,78.9],backgroundColor:'#1a6b3c',borderRadius:4},{label:'Importações',data:[3.36,111.8,107.2],backgroundColor:'#E3120B',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}},tooltip:{callbacks:{label:c=>c.dataIndex===2?c.dataset.label+': '+(c.parsed.y*1000).toFixed(0)+' M€':c.dataset.label+': '+c.parsed.y.toFixed(2)+' M€'}}},scales:{y:{grid:{color:G}},x:{grid:{color:G}}}}});
 
-// 13. Hóspedes mensais
-new Chart('cHosp',{type:'bar',data:{labels:['nov','dez','jan','fev','mar','abr','mai','jun','jul','ago','set','out'],datasets:[{label:'Hóspedes em Montalegre',data:[1109,1109,1023,1568,1618,1215,1465,1402,1309,1244,1309,1244],backgroundColor:'#1e8449',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G},ticks:{autoSkip:false,maxRotation:0,font:{size:11}}}}}});
+new Chart('cMB',{type:'line',data:{labels:['nov','dez','jan','fev','mar','abr','mai','jun','jul','ago','set','out'],datasets:[{label:'Montalegre',data:[11.1,-5.1,6.6,9.9,4.2,14.1,4.9,3.3,1.8,0.1,4.6,7.0],borderColor:'#E3120B',tension:0.3,pointRadius:4},{label:'Portugal',data:[6.6,1.8,4.9,5.4,4.2,4.6,4.9,3.4,1.8,1.4,4.6,7.0],borderColor:'#003366',tension:0.3,pointRadius:4,borderDash:[5,4]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'}},x:{grid:{color:G},ticks:{autoSkip:false}}}}});
 
-// 14. Saúde
-new Chart('cSaude',{type:'bar',data:{labels:['Natalidade (‰)','Mortalidade (‰)','Nupcialidade (‰)'],datasets:[{label:'Montalegre',data:[3.2,19.4,0.3],backgroundColor:'#c0392b',borderRadius:4},{label:'NUTS III',data:[4.8,17.0,2.1],backgroundColor:'#d68910',borderRadius:4},{label:'Norte',data:[7.5,10.5,3.2],backgroundColor:'#1e8449',borderRadius:4},{label:'Portugal',data:[7.8,11.1,3.2],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
+new Chart('cTurPeso',{type:'bar',data:{labels:['Oferta\n(estab.)','Camas','Hóspedes','Dormidas','Proveitos'],datasets:[{data:[33.3,16.8,7.0,6.7,5.2],backgroundColor:['#1a6b3c','#1a6b3c','#B7600A','#B7600A','#E3120B'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toFixed(1)+'% da NUTS III'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'},max:40},x:{grid:{color:G}}}}});
 
-// 15. Cultura per capita
-new Chart('cCult',{type:'bar',data:{labels:['Cultura total','Património','Artes\nespetáculo','Bibliotecas','Desporto'],datasets:[{label:'Montalegre (€/hab.)',data:[232.3,94.4,78.9,21.2,185.9],backgroundColor:'#c0392b',borderRadius:4},{label:'NUTS III',data:[109.1,29.0,31.5,14.4,92.1],backgroundColor:'#d68910',borderRadius:4},{label:'Portugal',data:[63.0,11.7,18.0,8.9,48.4],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'€'}},x:{grid:{color:G},ticks:{maxRotation:20}}}}});
+new Chart('cHosp',{type:'bar',data:{labels:['nov','dez','jan','fev','mar','abr','mai','jun','jul','ago','set','out'],datasets:[{data:[1109,1109,1023,1568,1618,1215,1465,1402,1309,1244,1309,1244],backgroundColor:'#1a6b3c',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G},ticks:{autoSkip:false}}}}});
 
-// 16. PPI barras
-new Chart('cPPI',{type:'bar',data:{labels:['Transportes e\nComunicações','Funções Sociais\n(total)','Funções Gerais\n(adm. pública)','Outras\nFunções','Ordenamento\nTerritório','Educação','Saúde','Habitação','Desporto\ne Lazer'],datasets:[{label:'Orçamento (€)',data:[4145628,8749940,3323475,2746600,1590551,1724403,1154000,748500,1866765],backgroundColor:'rgba(26,82,118,0.3)',borderRadius:4},{label:'Executado (€)',data:[3227029,5189792,1582209,2381613,1320934,1024205,769780,170520,639788],backgroundColor:'#1a5276',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}},tooltip:{callbacks:{label:ctx=>'€'+Math.round(ctx.parsed.x).toLocaleString('pt-PT')}}},scales:{x:{grid:{color:G},ticks:{callback:v=>Math.round(v/1000)+'k€'}},y:{grid:{color:G},ticks:{font:{size:11}}}}}});
+new Chart('cSaude',{type:'bar',data:{labels:['Natalidade (‰)','Mortalidade (‰)','Nupcialidade (‰)'],datasets:[{label:'Montalegre',data:[3.2,19.4,0.3],backgroundColor:'#E3120B',borderRadius:4},{label:'NUTS III',data:[4.8,17.0,2.1],backgroundColor:'#B7600A',borderRadius:4},{label:'Norte',data:[7.5,10.5,3.2],backgroundColor:'#1a6b3c',borderRadius:4},{label:'Portugal',data:[7.8,11.1,3.2],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
 
-// 17. PPI execução %
-new Chart('cPPIexec',{type:'bar',data:{labels:['Transf. entre Adm.','Outras Funções','Ordenamento Território','Transportes','Segurança','Abast. Água','Resíduos Sólidos','Saneamento','Saúde','Educação','Indústria/Energia','Funções Gerais Adm.','Desporto/Lazer','Habitação','Ação Social'],datasets:[{label:'Taxa de execução (%)',data:[100,86.7,83.0,77.8,64.1,77.0,74.9,76.3,66.7,59.4,59.7,44.2,34.3,22.8,0],backgroundColor:function(ctx){const v=ctx.raw;return v>=75?'#1e8449':v>=50?'#d68910':'#c0392b'},borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>ctx.parsed.x.toFixed(1)+'%'}}},scales:{x:{grid:{color:G},ticks:{callback:v=>v+'%'},max:110},y:{grid:{color:G},ticks:{font:{size:11}}}}}});
+new Chart('cCult',{type:'bar',data:{labels:['Cultura total','Património','Artes','Bibliotecas','Desporto'],datasets:[{label:'Montalegre (€/hab.)',data:[232.3,94.4,78.9,21.2,185.9],backgroundColor:'#E3120B',borderRadius:4},{label:'NUTS III',data:[109.1,29.0,31.5,14.4,92.1],backgroundColor:'#B7600A',borderRadius:4},{label:'Portugal',data:[63.0,11.7,18.0,8.9,48.4],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'€'}},x:{grid:{color:G}}}}});
 
-// 18. PAM
-new Chart('cPAM',{type:'bar',data:{labels:['Desporto/Lazer','Transf. Adm.','Comércio/Turismo','Outras Ec.','Saneamento','Indústria/Energia','Ação Social','Resíduos','Cultura','Proteção Amb.','Adm. Pública','Água','Segurança','Educação','Saúde'],datasets:[{label:'Orçamento (€)',data:[716500,1576560,505700,905000,215000,650300,775601,1343300,990900,357350,1665198,289200,362000,1164240,452000],backgroundColor:'rgba(30,132,73,0.25)',borderRadius:4},{label:'Executado (€)',data:[700934,1571825,475845,880926,202362,621688,659912,1158488,844638,293911,1364108,234476,340125,873511,285732],backgroundColor:'#1e8449',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:14,padding:12}},tooltip:{callbacks:{label:ctx=>'€'+Math.round(ctx.parsed.x).toLocaleString('pt-PT')}}},scales:{x:{grid:{color:G},ticks:{callback:v=>Math.round(v/1000)+'k€'}},y:{grid:{color:G},ticks:{font:{size:10}}}}}});
+new Chart('cPPI',{type:'bar',data:{labels:['Transportes','Educação','Saúde','Ordenamento\nTerritório','Adm. Pública','Água','Desporto','Habitação','Resíduos','Saneamento'],datasets:[{label:'Orçamento',data:[4145628,1724403,1154000,1590551,2747374,893916,1866765,748500,221300,537305],backgroundColor:'rgba(0,51,102,0.15)',borderRadius:4},{label:'Executado',data:[3227029,1024205,769780,1320934,1212899,688560,639788,170520,165804,410201],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}},tooltip:{callbacks:{label:c=>'€'+Math.round(c.parsed.x).toLocaleString('pt-PT')}}},scales:{x:{grid:{color:G},ticks:{callback:v=>Math.round(v/1000)+'k€'}},y:{grid:{color:G},ticks:{font:{size:11}}}}}});
+
+new Chart('cPPIexec',{type:'bar',data:{labels:['Transf. Adm.','Ordenamento','Transportes','Água','Saneamento','Resíduos','Segurança','Saúde','Educação','Ind./Energia','Adm. Pública','Desporto','Habitação','Ação Social'],datasets:[{data:[100,83,78,77,76,75,64,67,59,60,44,34,23,0],backgroundColor:function(ctx){const v=ctx.raw;return v>=75?'#1a6b3c':v>=50?'#B7600A':'#E3120B'},borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x.toFixed(0)+'%'}}},scales:{x:{grid:{color:G},ticks:{callback:v=>v+'%'},max:110},y:{grid:{color:G},ticks:{font:{size:11}}}}}});
+
+new Chart('cPAM',{type:'bar',data:{labels:['Desporto','Transf. Adm.','Comércio/Tur.','Saneamento','Ind./Energia','Resíduos','Ação Social','Cultura','Proteção Amb.','Adm. Pública','Água','Segurança','Educação','Saúde'],datasets:[{label:'Orçamento',data:[716500,1576560,505700,215000,650300,1343300,775601,990900,357350,1665198,289200,362000,1164240,452000],backgroundColor:'rgba(26,107,60,0.15)',borderRadius:4},{label:'Executado',data:[700934,1571825,475845,202362,621688,1158488,659912,844638,293911,1364108,234476,340125,873511,285732],backgroundColor:'#1a6b3c',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}},tooltip:{callbacks:{label:c=>'€'+Math.round(c.parsed.x).toLocaleString('pt-PT')}}},scales:{x:{grid:{color:G},ticks:{callback:v=>Math.round(v/1000)+'k€'}},y:{grid:{color:G},ticks:{font:{size:10}}}}}});
+
+new Chart('cEduc',{type:'bar',data:{labels:['Pré-escolar','Ensino básico','Ensino secundário'],datasets:[{label:'Montalegre',data:[96.6,108.6,104.2],backgroundColor:'#E3120B',borderRadius:4},{label:'NUTS III',data:[104.9,114.9,125.2],backgroundColor:'#B7600A',borderRadius:4},{label:'Portugal',data:[100.6,113.2,124.9],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'%'},min:85},x:{grid:{color:G}}}}});
+
+new Chart('cDep',{type:'bar',data:{labels:['Jovens 0–14 (%)','Ativos 15–64 (%)','Idosos 65+ (%)','Idosos por 100 ativos'],datasets:[{label:'Montalegre',data:[7.4,59,33.6,56.9],backgroundColor:'#E3120B',borderRadius:4},{label:'Portugal',data:[12.6,63,24.4,38.7],backgroundColor:'#003366',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:{color:G},beginAtZero:true},x:{grid:{color:G}}}}});
+
+
+new Chart('cCultHab',{type:'bar',data:{labels:['Cultura e eventos\n(232€/hab.)','Desporto\n(186€/hab.)','Saúde\n(PPI, 85€/hab.)','Educação\n(PPI, 113€/hab.)','Habitação\n(PPI, 19€/hab.)','Ação Social\n(PPI, 0€/hab.)'],datasets:[{label:'€ por habitante',data:[232,186,85,113,19,0],backgroundColor:['#B7600A','#B7600A','#003366','#003366','#E3120B','#E3120B'],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'€/hab.'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'€'},beginAtZero:true},x:{grid:{color:G},ticks:{maxRotation:0,font:{size:10}}}}}});
+
+
+// Salário comparado
+new Chart('cSalario',{type:'bar',data:{labels:['Montalegre','Boticas','Ribeira\nde Pena','Valpaços','Chaves','Portugal'],datasets:[{label:'Ganho médio mensal (€)',data:[1054.8,980,1020,1010,1120,1460.8],backgroundColor:['#E3120B','#E3120B','#E3120B','#E3120B','#B7600A','#003366'],borderRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toFixed(0)+'€/mês'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'€'},min:800},x:{grid:{color:G}}}}});
+
+// Estrutura empresarial
+new Chart('cEmprDim',{type:'doughnut',data:{labels:['Microempresas (98,6%)','Pequenas (1,3%)','Médias (0,1%)','Grandes (0%)'],datasets:[{data:[1685,22,2,0],backgroundColor:['#003366','#0066cc','#B7600A','#E3120B'],borderWidth:3,borderColor:'#fff'}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:10,padding:8,font:{size:11}}},tooltip:{callbacks:{label:c=>c.label.split('(')[0].trim()+': '+c.parsed+' empresas'}}}}});
+
+// Preço casas comparado
+new Chart('cCasas',{type:'bar',data:{labels:['Montalegre','Vizinhos\n(média est.)','NUTS III\n(média est.)','Portugal'],datasets:[{label:'Preço mediano €/m²',data:[464,520,600,1700],backgroundColor:['#E3120B','#B7600A','#B7600A','#003366'],borderRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'€/m²'}}},scales:{y:{grid:{color:G},ticks:{callback:v=>v+'€'},beginAtZero:true},x:{grid:{color:G}}}}});
+
 </script>
 </body>
 </html>
